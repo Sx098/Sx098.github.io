@@ -160,6 +160,57 @@
     
     
     <article
+  id="post-Hexo博客搭建"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
+    >Hexo博客搭建</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2022-01-14T12:49:03.000Z" itemprop="datePublished">2022-01-14</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：node -v npm -v<br>安装git:git –version<br>安装hexo:npm install hexo-cli -g<br>hexo指令:使用npx hexo -v</p>
+<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:ssh-keygen -t rsa -C “GitHub邮箱地址”<br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名<br>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br>1.hexo init (文件夹名)<br>2.hexo g(生成静态页面)<br>3.hexo s(开启本地服务器)<br>4.hexo d(上传)</p>
+<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-基本操作"
   class="article article-type-post"
   itemscope
@@ -192,46 +243,6 @@
         >阅读更多...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-你好！"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-     
-    <div class="article-meta">
-      <a href="/2022/01/14/%E4%BD%A0%E5%A5%BD%EF%BC%81/" class="article-date">
-  <time datetime="2022-01-14T09:05:33.656Z" itemprop="datePublished">2022-01-14</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="你好！"><a href="#你好！" class="headerlink" title="你好！"></a>你好！</h1><p><strong>v1.0.2 只有Window版</strong></p>
-<p>1.安装主程序，安装完毕后不要启动</p>
-<p>2.将Crack中的文件复制到程序安装木录下的 resources 文件夹中替换，默认路径：C:\Users\u9baoku.xyz（你的用户名）\AppData\Local\Programs\Typora\resources</p>
-<p>v0.11.18 Beta Win+Mac+Linux<br> 【来源：<a target="_blank" rel="noopener" href="https://u9baoku.xyz/5368.html%EF%BC%8C%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E3%80%91">https://u9baoku.xyz/5368.html，转载请注明】</a></p>
- 
       <!-- reward -->
       
     </div>
