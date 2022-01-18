@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -99,7 +99,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -114,14 +114,14 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="为文章添加多个分类"><a href="#为文章添加多个分类" class="headerlink" title="为文章添加多个分类"></a>为文章添加多个分类</h2><p>1）下面文章属于三个分类：日常 &gt; 生活，日常 &gt; 随想，日记<br>2）其中生活、随想为日常的子分类，日常和日记为同级分类</p>
+  <h2 id="HEXO博客操作"><a href="#HEXO博客操作" class="headerlink" title="HEXO博客操作"></a>HEXO博客操作</h2><p>1）下面文章属于三个分类：日常 &gt; 生活，日常 &gt; 随想，日记<br>2）其中生活、随想为日常的子分类，日常和日记为同级分类</p>
 <span id="more"></span>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-    <div id="aplayer-yJPpwXFd" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-jRPNQdVD" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1868837988" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -372,7 +372,25 @@
 </tbody></table>
 <h2 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h2><p>标签页和分类页添加type后没有效果，需要再添加layout</p>
 <p><code>type: &quot;categories&quot;</code><br><code>layout: &quot;categories&quot;</code></p>
- 
+<h2 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h2><ul>
+<li><p>有时候我们可能需要写一些私密的博客，通过密码验证的方式让人不能随意浏览。</p>
+</li>
+<li><p>这在wordpress，emlog或其他博客系统中都很容易实现，然而hexo除外。</p>
+</li>
+<li><p>为了解决这个问题，需要安装“ hexo-blog-encrypt”扩展。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>一旦你输入了正确的密码，它就会被存储在本地浏览器的localStorage中。按个按钮，密码将会被清空。若博客中有脚本，它将被正确地执行。</li>
+<li>支持按标签加密。</li>
+<li>所有的核心功能都是由原生的API所提供的。在Node.js中，我们使用Crypto。在浏览器中，我们使用Web Crypto API。</li>
+<li>PBKDF2，SHA256被用作复制密钥，AES256-CBC被用作加解密，我们还使用HMAC来验证密文的来源，并确保其纠正。</li>
+<li>广泛地使用Promise来进行异步操作，从而确保线程不被杜塞。</li>
+<li>过时的浏览器将无法正常显示，因此要浏览器。</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line">- 分享</span><br><span class="line">date: <span class="number">2020</span>-<span class="number">10</span>-<span class="number">14</span> <span class="number">10</span>:<span class="number">14</span>:<span class="number">21</span></span><br><span class="line">password: <span class="number">123456</span></span><br><span class="line"><span class="keyword">abstract</span>: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</span><br><span class="line">---</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
