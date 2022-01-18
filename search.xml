@@ -1,6 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo博客搭建</title>
+    <url>/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>通过Nodejs安装hexo，Git来搭建环境。</p>
+<span id="more"></span>
+
+
+    <div id="aplayer-bsdUzIgw" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1842992032" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
+    ></div>
+
+<h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：<code>node -v npm -v</code><br>安装git:<code>git --version</code><br>安装hexo:<code>npm install hexo-cli -g</code><br>hexo指令:使用<code>npx hexo -v</code></p>
+<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:<code>ssh-keygen -t rsa -C &quot;GitHub邮箱地址&quot;</code><br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:<code>ssh -T git@github.com</code></p>
+<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名</p>
+<p><strong>输入指令</strong><br><code>hexo init (文件夹名)</code>   <strong>如果报错，指令加上前缀npx</strong></p>
+<p>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br><code>1.hexo init (文件夹名)</code><br><code>2.hexo g(生成静态页面)</code><br><code>3.hexo s(开启本地服务器)</code><br><code>4.hexo d(上传)</code></p>
+<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
+<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">推荐指数</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://valine.js.org/">Valine</a></td>
+<td align="left">4</td>
+<td align="left">每天30000条评论，10GB的储存</td>
+<td align="left">作者评论无标识</td>
+</tr>
+<tr>
+<td align="left"><a href="https://livere.com/">来必力/livere</a></td>
+<td align="left">4</td>
+<td align="left">多种账号登录</td>
+<td align="left">评论无法导出</td>
+</tr>
+<tr>
+<td align="left"><a href="http://changyan.kuaizhan.com/">畅言</a></td>
+<td align="left">3</td>
+<td align="left">美观</td>
+<td align="left">必须备案域名</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/imsun/gitment">gitment</a></td>
+<td align="left">3</td>
+<td align="left">简洁</td>
+<td align="left">只能登陆github评论</td>
+</tr>
+<tr>
+<td align="left">Disqus</td>
+<td align="left">1</td>
+<td align="left"></td>
+<td align="left">需要翻*墙</td>
+</tr>
+</tbody></table>
+<h3 id="获取APP-ID-和-APP-Key"><a href="#获取APP-ID-和-APP-Key" class="headerlink" title="获取APP ID 和 APP Key"></a>获取APP ID 和 APP Key</h3><p>进入<a href="https://valine.js.org/">Valine</a>官网，请先<a href="https://leancloud.cn/dashboard/login.html#/signin">登录</a>或<a href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> <code>LeanCloud</code>, 进入<a href="https://leancloud.cn/dashboard/applist.html#/apps">控制台</a>后点击左下角<a href="https://leancloud.cn/dashboard/applist.html#/newapp">创建应用</a></p>
+<p><img src="https://i.loli.net/2019/06/21/5d0c995c86fac81746.jpg"></p>
+<p>应用创建好以后，进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了：</p>
+<p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg"></p>
+<p>在config.yml文件中找到leancloud填写得到的app_id与app_key</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PS技巧</title>
+    <url>/2022/01/16/PS%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h3 id="混合颜色带"><a href="#混合颜色带" class="headerlink" title="混合颜色带"></a>混合颜色带</h3><p>混合颜色带是混合选项中的一项功能，通过它可以快速选择火焰、烟花、云彩、闪电等色调与背景之间有较大差异的对象。</p>
+<p>通过设置混合颜色带中的通道选项，拖动混合滑块等可以快速隐藏背景，只在画面中显示主体对象，被急藏的区域也可根据需要随时恢复显示。</p>
+<span id="more"></span>
+
+
+    <div id="aplayer-iSqIbXIY" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1403774122" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
+    ></div>
+
+<h4 id="参数解读"><a href="#参数解读" class="headerlink" title="参数解读"></a><strong>参数解读</strong></h4><p><img src="/image/1.png"></p>
+<p>a）在”混合颜色带”下拉列表中可以选择控制混合效果的颜色通道。“灰色”表示使用全部颜色通道控制混合效果。</p>
+<p><img src="/image/image-20220116124749233.png"></p>
+<p>选择其他通道后，PS会依据当前设置的通道颜色信息来确定参与混合的像素。</p>
+<p>b）对话框中还包含了两组混合滑块，即：”本图层”滑块、“下一图层”滑块，它们用来控制当前图层和下面图层在最终的图像中显示的像素。通过移动混合滑块，可根据图像的亮度范围快速创建透明区域。</p>
+<p><img src="/image/image-20220116124814240.png"></p>
+<p>还可定义部分混合像素的范围，从而在混合区域和非混合区域之间产生一种平滑的过渡效果。</p>
+<p>c）**”本图层”指的是当前操作的图层**，拖动”本图层”滑块可以隐藏当前图层中的图像。</p>
+<ul>
+<li>将左侧的黑色滑块向中间移动时，当前图层中色调较暗的像素会逐渐变为透明；</li>
+<li>将右侧的白色滑块向中间移动时，当前图层中色调较亮的像素会逐渐变为透明；</li>
+</ul>
+<p>d）**”下一图层”指的是位于当前图层下面的那一个图层**。移动”下一图层”滑块可以显示下面图层中的的图像。</p>
+<ul>
+<li>将左侧的黑色滑块向中间移动时，可以逐渐显示下面图层中较暗的像素；</li>
+<li>将右侧的白色滑块向中间拖动时，可以逐渐显示下面图层中较亮的像素；</li>
+</ul>
+<p><strong>【小总结】</strong>：用一句简单的话总结，就是：”本图层”负责隐藏，而”下一图层”负责显示。</p>
+<p>e）<strong>按住Alt键单击滑块，可以将其分离</strong>。增加分离后的两个滑块的距离可以在透明区域与非透明区域之间创建平滑的过渡。</p>
+<p><strong>【注意】</strong>：<strong>在通过混合滑块选取对象时，它只是将背景图像隐藏，并不是真正地将其删除</strong>。被隐藏的图像是可以恢复的。</p>
+<p>重新打开”图层样式”对话框后，将滑块拖回原来的起始位置便可以将隐藏的图像显示出来。</p>
+<h4 id="数字的含义"><a href="#数字的含义" class="headerlink" title="数字的含义"></a>数字的含义</h4><p>在”混合颜色带”中，”本图层”和”下一图层”都包含一个渐变条，它们分别代表当前图层中的图像和下面图层中图像的亮度范围，从0（黑）到255（白）。</p>
+<p>在默认状态下，黑色滑块位于渐变条的最左侧，它上面的数字为0，白色滑块位于渐变条的最右侧，它上面的数字为255。</p>
+<p>拖动黑色滑块可设置亮度范围的最低值，拖动白色滑块可设置亮度范围的最高值。拖动某一滑块时，该滑块上方的数字就会发生改变，通过观察数字可以准确地判断出图像中有哪些像素参与了混合，哪些像素被排除在混合效果之外。</p>
+<p><strong>黑色滑块用来设置亮度范围的最低值，因此，如果将该滑块拖动至128处，所有亮度值低于128的像素都将变为透明区域。</strong></p>
+<p><strong>白色滑块用来设置亮度范围的最高值，因此，如果将白色滑块拖动至128处，则所有亮度值大于128的像素将变为透明区域。</strong></p>
+<p>“下一图层”渭块用来控制下面的图层将在最终图像中混合的像素范围，通过移动滑块可以在混合结果中显示下面图层中的图像。</p>
+<p><strong>将”下一图层”中的黑色滑块拖动到128处时，下一图层中亮度值低于128的像素将透过当前图层显示出来。</strong></p>
+<p><strong>将”下一图层”中的白色滑块拖动到128处时，下一图层中亮度值高于128的像素将透过当前图层显示出来。</strong></p>
+<p>如果按住Alt键单击滑块，滑块就可分离。被分开的滑块上方也会出现与之对应的数字，它们代表了部分混合的像素范围。</p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>抠图</tag>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot笔记</title>
+    <url>/2022/01/15/SpringBoot%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>😤！🤔🍑？⚡︎🌪🔪</p>
+<p><strong>Springboot框架学习笔记</strong></p>
+<ul>
+<li>创建独立Spring应用、内嵌web服务器、自动starter依赖，简化构建配置、自动配置Spring以及第三方功能、提供生产级别的监控、健康检查及外部化配置、无代码生成、无需编写XML</li>
+<li><a href="https://spring.io/projects/spring-boot">Spring Boot官网</a></li>
+<li><a href="https://docs.spring.io/spring-boot/docs/">Spring Boot官方文档</a></li>
+</ul>
+<span id="more"></span>
+
+
+    <div id="aplayer-fMNUfrWJ" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="96520" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
+    ></div>
+
+<h2 id="web-静态资源"><a href="#web-静态资源" class="headerlink" title="web-静态资源"></a>web-静态资源</h2><p>静态资源默认访问路径在static文件夹下，可通过下面指令更改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  web:</span><br><span class="line">    resources:</span><br><span class="line">      static-locations: classpath:/image/</span><br></pre></td></tr></table></figure>
+
+<p>index.html为默认主界面</p>
+<p>favicon.ico为默认网页图标</p>
+<p>如若更改后没有效果，可以清理浏览器缓存或重启idea</p>
+<h2 id="web-静态资源原理"><a href="#web-静态资源原理" class="headerlink" title="web-静态资源原理"></a>web-静态资源原理</h2><ul>
+<li><p>SpringBoot启动默认加载 xxxAutoConfiguration 类（自动配置类）</p>
+</li>
+<li><p>SpringMVC功能的自动配置类<code>WebMvcAutoConfiguration</code>，生效</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration(proxyBeanMethods = false)</span><br><span class="line">@ConditionalOnWebApplication(type = Type.SERVLET)</span><br><span class="line">@ConditionalOnClass(&#123; Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class &#125;)</span><br><span class="line">@ConditionalOnMissingBean(WebMvcConfigurationSupport.class)</span><br><span class="line">@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)</span><br><span class="line">@AutoConfigureAfter(&#123; DispatcherServletAutoConfiguration.class, TaskExecutionAutoConfiguration.class,</span><br><span class="line">		ValidationAutoConfiguration.class &#125;)</span><br><span class="line">public class WebMvcAutoConfiguration &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>给容器中配置的内容：</p>
+<ul>
+<li><p>配置文件的相关属性的绑定：WebMvcProperties==<strong>spring.mvc</strong>、ResourceProperties==<strong>spring.resources</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration(proxyBeanMethods = false)</span><br><span class="line">@Import(EnableWebMvcConfiguration.class)</span><br><span class="line">@EnableConfigurationProperties(&#123; WebMvcProperties.class, ResourceProperties.class &#125;)</span><br><span class="line">@Order(0)</span><br><span class="line">public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合框架</title>
     <url>/2022/01/15/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h1><hr>
@@ -18,7 +185,7 @@
 <span id="more"></span>
 
 
-    <div id="aplayer-fGuLYaMH" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-kZAuHrdV" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1834823818" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -277,165 +444,91 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建</title>
-    <url>/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>通过Nodejs安装hexo，Git来搭建环境。</p>
+    <title>计算机基础知识</title>
+    <url>/2022/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>记录计算机知识</p>
 <span id="more"></span>
 
-
-    <div id="aplayer-gtWSSRvU" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="1842992032" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
-    ></div>
-
-<h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：<code>node -v npm -v</code><br>安装git:<code>git --version</code><br>安装hexo:<code>npm install hexo-cli -g</code><br>hexo指令:使用<code>npx hexo -v</code></p>
-<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:<code>ssh-keygen -t rsa -C &quot;GitHub邮箱地址&quot;</code><br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:<code>ssh -T git@github.com</code></p>
-<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名</p>
-<p><strong>输入指令</strong><br><code>hexo init (文件夹名)</code>   <strong>如果报错，指令加上前缀npx</strong></p>
-<p>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br><code>1.hexo init (文件夹名)</code><br><code>2.hexo g(生成静态页面)</code><br><code>3.hexo s(开启本地服务器)</code><br><code>4.hexo d(上传)</code></p>
-<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
-<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><table>
+<h3 id="Cookie、Session、Token区别"><a href="#Cookie、Session、Token区别" class="headerlink" title="Cookie、Session、Token区别"></a>Cookie、Session、Token区别</h3><p>sessionid是存在服务器内存里，session保存的用户信息存在服务器内存或数据库，<br>cookie接收保存服务器发来的sessionid，然后每次浏览器发送请求就会带上cookie的数据。<br>token是服务器加密的用户信息，服务器将token发给浏览器，浏览器用cookie或storage保存cookie。然后浏览器每次发送请求就带上token，服务器将其解密并确认用户登录。</p>
+<h3 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h3><p>三次握手：<br>A：是B吗？我要跟你通信，听得到我说话吗？    //发送SYN包<br>B：可以通信，你听得到我说话吗？                    //返回SYN+ACK包<br>A：我也听得到。                                                //响应ACK，确认收到SYN</p>
+<p>为什么不是二次握手？</p>
+<p>因为，如果第一次握手因某些原因未达到服务器，在某个网络节点滞留，客户端重发SYN包，服务器返回SYN+ACK，成功建立连接，原先滞留的网络节点恢复发送服务端SYN包，服务端认为是两个连接，而客户端认为是一个连接，造成状态不一致，因此三次握手解决了网络信道不可靠问题。</p>
+<p>一包数据有可能被拆成多包发送，如何处理丢包问题；这些包到达顺序不同，如何处理乱序问题</p>
+<p>TCP协议为每个连接建立一个发送缓冲区，从建立连接后的第一个字节序列号为0，后面每个字节序列号加1，<strong>发送数据时</strong>，从发送缓冲区取一部分数据组成发送报文，在其tcp协议中附带序列号和长度，<strong>接收端收到数据后</strong>，需要回复确认报文，确认报文中的ACK=接收序列号+长度=下一包要发送的起始序列号，这样一问一答的发送方式，能够使发送端确认发送的数据已经被对方收到，发送端也可以一次发送连续的多包数据，接收端只需要回复一次ACK就可以，<strong>假设其中丢失了某些包</strong>，丢失了100-299这200个字节，接收端向发送端发送ACK=100的报文，发送端收到后重传这一包数据，<strong>tcp连接是全双工的，两端均采用上述机制。</strong></p>
+<p><img src="/image/image-20220118103053549.png"></p>
+<p>四次挥手：<br>A：呼叫B，我要跟你断开。                //发送FIN包<br>B：知道了，等一下我还有话没说完    //发送ACK包<br>B：我说完了，可以断开了                 //发送FIN包<br>A：好的                                              //发送ACK包</p>
+<p><img src="/image/image-20220118103309671.png"></p>
+<table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="left">推荐指数</th>
-<th align="left">优点</th>
-<th align="left">缺点</th>
+<th>区别</th>
+<th>TCP</th>
+<th>UDP</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><a href="https://valine.js.org/">Valine</a></td>
-<td align="left">4</td>
-<td align="left">每天30000条评论，10GB的储存</td>
-<td align="left">作者评论无标识</td>
+<td>性能损耗</td>
+<td>多</td>
+<td>少</td>
 </tr>
 <tr>
-<td align="left"><a href="https://livere.com/">来必力/livere</a></td>
-<td align="left">4</td>
-<td align="left">多种账号登录</td>
-<td align="left">评论无法导出</td>
+<td>CPU资源占用</td>
+<td>多</td>
+<td>少</td>
 </tr>
 <tr>
-<td align="left"><a href="http://changyan.kuaizhan.com/">畅言</a></td>
-<td align="left">3</td>
-<td align="left">美观</td>
-<td align="left">必须备案域名</td>
+<td>传输稳定性</td>
+<td>强</td>
+<td>弱</td>
 </tr>
 <tr>
-<td align="left"><a href="https://github.com/imsun/gitment">gitment</a></td>
-<td align="left">3</td>
-<td align="left">简洁</td>
-<td align="left">只能登陆github评论</td>
+<td>应用场景</td>
+<td>对网络通讯质量要求较高，需要准确无误</td>
+<td>适用于实时性要求较高，对少量丢包没要太大要求</td>
 </tr>
 <tr>
-<td align="left">Disqus</td>
-<td align="left">1</td>
-<td align="left"></td>
-<td align="left">需要翻*墙</td>
+<td>实际应用</td>
+<td>传输文件、发送邮件、浏览网页</td>
+<td>域名查询、语音通话、视频直播、隧道网络</td>
 </tr>
 </tbody></table>
-<h3 id="获取APP-ID-和-APP-Key"><a href="#获取APP-ID-和-APP-Key" class="headerlink" title="获取APP ID 和 APP Key"></a>获取APP ID 和 APP Key</h3><p>进入<a href="https://valine.js.org/">Valine</a>官网，请先<a href="https://leancloud.cn/dashboard/login.html#/signin">登录</a>或<a href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> <code>LeanCloud</code>, 进入<a href="https://leancloud.cn/dashboard/applist.html#/apps">控制台</a>后点击左下角<a href="https://leancloud.cn/dashboard/applist.html#/newapp">创建应用</a></p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c995c86fac81746.jpg"></p>
-<p>应用创建好以后，进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了：</p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg"></p>
-<p>在config.yml文件中找到leancloud填写得到的app_id与app_key</p>
+<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>POST</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>含义</td>
+<td>检索&amp;&amp;获取</td>
+<td>创建||更新</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>2048字节</td>
+<td>没有限制</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>显示在地址栏</td>
+<td>不显示在地址栏</td>
+</tr>
+<tr>
+<td>提交方式</td>
+<td>通过URL</td>
+<td>放置在HTML header内</td>
+</tr>
+</tbody></table>
+<p><strong>http://</strong><font color="red">华莱士</font>/<font color="blue">菜单</font>？<font color="orange">巨无霸套餐=1份</font></p>
+<p><strong>http://</strong><font color="red"><a href="http://www.mcdonalds.com/">www.mcdonalds.com</a></font>/<font color="blue">menu</font>？<font color="orange">bigmac=1份</font></p>
+<p>华莱士=域名 菜单=路径 巨无霸套餐=请求的参数</p>
+<h3 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h3><p>谷歌浏览器常用版本URL限制是2048个字符</p>
+<p>2MB = 2048KB，1KB = 1024字节，1Byte = 8 bit</p>
 ]]></content>
       <categories>
         <category>前端</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PS技巧</title>
-    <url>/2022/01/16/PS%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h3 id="混合颜色带"><a href="#混合颜色带" class="headerlink" title="混合颜色带"></a>混合颜色带</h3><p>混合颜色带是混合选项中的一项功能，通过它可以快速选择火焰、烟花、云彩、闪电等色调与背景之间有较大差异的对象。</p>
-<p>通过设置混合颜色带中的通道选项，拖动混合滑块等可以快速隐藏背景，只在画面中显示主体对象，被急藏的区域也可根据需要随时恢复显示。</p>
-<span id="more"></span>
-
-
-    <div id="aplayer-psJdipTM" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="1403774122" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
-    ></div>
-
-<h4 id="参数解读"><a href="#参数解读" class="headerlink" title="参数解读"></a><strong>参数解读</strong></h4><p><img src="/image/1.png"></p>
-<p>a）在”混合颜色带”下拉列表中可以选择控制混合效果的颜色通道。“灰色”表示使用全部颜色通道控制混合效果。</p>
-<p><img src="/image/image-20220116124749233.png"></p>
-<p>选择其他通道后，PS会依据当前设置的通道颜色信息来确定参与混合的像素。</p>
-<p>b）对话框中还包含了两组混合滑块，即：”本图层”滑块、“下一图层”滑块，它们用来控制当前图层和下面图层在最终的图像中显示的像素。通过移动混合滑块，可根据图像的亮度范围快速创建透明区域。</p>
-<p><img src="/image/image-20220116124814240.png"></p>
-<p>还可定义部分混合像素的范围，从而在混合区域和非混合区域之间产生一种平滑的过渡效果。</p>
-<p>c）**”本图层”指的是当前操作的图层**，拖动”本图层”滑块可以隐藏当前图层中的图像。</p>
-<ul>
-<li>将左侧的黑色滑块向中间移动时，当前图层中色调较暗的像素会逐渐变为透明；</li>
-<li>将右侧的白色滑块向中间移动时，当前图层中色调较亮的像素会逐渐变为透明；</li>
-</ul>
-<p>d）**”下一图层”指的是位于当前图层下面的那一个图层**。移动”下一图层”滑块可以显示下面图层中的的图像。</p>
-<ul>
-<li>将左侧的黑色滑块向中间移动时，可以逐渐显示下面图层中较暗的像素；</li>
-<li>将右侧的白色滑块向中间拖动时，可以逐渐显示下面图层中较亮的像素；</li>
-</ul>
-<p><strong>【小总结】</strong>：用一句简单的话总结，就是：”本图层”负责隐藏，而”下一图层”负责显示。</p>
-<p>e）<strong>按住Alt键单击滑块，可以将其分离</strong>。增加分离后的两个滑块的距离可以在透明区域与非透明区域之间创建平滑的过渡。</p>
-<p><strong>【注意】</strong>：<strong>在通过混合滑块选取对象时，它只是将背景图像隐藏，并不是真正地将其删除</strong>。被隐藏的图像是可以恢复的。</p>
-<p>重新打开”图层样式”对话框后，将滑块拖回原来的起始位置便可以将隐藏的图像显示出来。</p>
-<h4 id="数字的含义"><a href="#数字的含义" class="headerlink" title="数字的含义"></a>数字的含义</h4><p>在”混合颜色带”中，”本图层”和”下一图层”都包含一个渐变条，它们分别代表当前图层中的图像和下面图层中图像的亮度范围，从0（黑）到255（白）。</p>
-<p>在默认状态下，黑色滑块位于渐变条的最左侧，它上面的数字为0，白色滑块位于渐变条的最右侧，它上面的数字为255。</p>
-<p>拖动黑色滑块可设置亮度范围的最低值，拖动白色滑块可设置亮度范围的最高值。拖动某一滑块时，该滑块上方的数字就会发生改变，通过观察数字可以准确地判断出图像中有哪些像素参与了混合，哪些像素被排除在混合效果之外。</p>
-<p><strong>黑色滑块用来设置亮度范围的最低值，因此，如果将该滑块拖动至128处，所有亮度值低于128的像素都将变为透明区域。</strong></p>
-<p><strong>白色滑块用来设置亮度范围的最高值，因此，如果将白色滑块拖动至128处，则所有亮度值大于128的像素将变为透明区域。</strong></p>
-<p>“下一图层”渭块用来控制下面的图层将在最终图像中混合的像素范围，通过移动滑块可以在混合结果中显示下面图层中的图像。</p>
-<p><strong>将”下一图层”中的黑色滑块拖动到128处时，下一图层中亮度值低于128的像素将透过当前图层显示出来。</strong></p>
-<p><strong>将”下一图层”中的白色滑块拖动到128处时，下一图层中亮度值高于128的像素将透过当前图层显示出来。</strong></p>
-<p>如果按住Alt键单击滑块，滑块就可分离。被分开的滑块上方也会出现与之对应的数字，它们代表了部分混合的像素范围。</p>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>抠图</tag>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot笔记</title>
-    <url>/2022/01/15/SpringBoot%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>😤！🤔🍑？⚡︎🌪🔪</p>
-<p><strong>Springboot框架学习笔记</strong></p>
-<ul>
-<li>创建独立Spring应用、内嵌web服务器、自动starter依赖，简化构建配置、自动配置Spring以及第三方功能、提供生产级别的监控、健康检查及外部化配置、无代码生成、无需编写XML</li>
-<li><a href="https://spring.io/projects/spring-boot">Spring Boot官网</a></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/">Spring Boot官方文档</a></li>
-</ul>
-<span id="more"></span>
-
-
-    <div id="aplayer-wCZvAfoG" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="96520" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
-    ></div>
-
-<h2 id="web-静态资源"><a href="#web-静态资源" class="headerlink" title="web-静态资源"></a>web-静态资源</h2><p>静态资源默认访问路径在static文件夹下，可通过下面指令更改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  web:</span><br><span class="line">    resources:</span><br><span class="line">      static-locations: classpath:/image/</span><br></pre></td></tr></table></figure>
-
-<p>index.html为默认主界面</p>
-<p>favicon.ico为默认网页图标</p>
-<p>如若更改后没有效果，可以清理浏览器缓存或重启idea</p>
-<h2 id="web-静态资源原理"><a href="#web-静态资源原理" class="headerlink" title="web-静态资源原理"></a>web-静态资源原理</h2><ul>
-<li><p>SpringBoot启动默认加载 xxxAutoConfiguration 类（自动配置类）</p>
-</li>
-<li><p>SpringMVC功能的自动配置类<code>WebMvcAutoConfiguration</code>，生效</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration(proxyBeanMethods = false)</span><br><span class="line">@ConditionalOnWebApplication(type = Type.SERVLET)</span><br><span class="line">@ConditionalOnClass(&#123; Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class &#125;)</span><br><span class="line">@ConditionalOnMissingBean(WebMvcConfigurationSupport.class)</span><br><span class="line">@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)</span><br><span class="line">@AutoConfigureAfter(&#123; DispatcherServletAutoConfiguration.class, TaskExecutionAutoConfiguration.class,</span><br><span class="line">		ValidationAutoConfiguration.class &#125;)</span><br><span class="line">public class WebMvcAutoConfiguration &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>给容器中配置的内容：</p>
-<ul>
-<li><p>配置文件的相关属性的绑定：WebMvcProperties==<strong>spring.mvc</strong>、ResourceProperties==<strong>spring.resources</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration(proxyBeanMethods = false)</span><br><span class="line">@Import(EnableWebMvcConfiguration.class)</span><br><span class="line">@EnableConfigurationProperties(&#123; WebMvcProperties.class, ResourceProperties.class &#125;)</span><br><span class="line">@Order(0)</span><br><span class="line">public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
         <category>后端</category>
       </categories>
       <tags>
@@ -471,7 +564,7 @@
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-    <div id="aplayer-jRPNQdVD" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-dheSEiar" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1868837988" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -750,100 +843,7 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机基础知识</title>
-    <url>/2022/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>记录计算机知识</p>
-<span id="more"></span>
-
-<h3 id="Cookie、Session、Token区别"><a href="#Cookie、Session、Token区别" class="headerlink" title="Cookie、Session、Token区别"></a>Cookie、Session、Token区别</h3><p>sessionid是存在服务器内存里，session保存的用户信息存在服务器内存或数据库，<br>cookie接收保存服务器发来的sessionid，然后每次浏览器发送请求就会带上cookie的数据。<br>token是服务器加密的用户信息，服务器将token发给浏览器，浏览器用cookie或storage保存cookie。然后浏览器每次发送请求就带上token，服务器将其解密并确认用户登录。</p>
-<h3 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h3><p>三次握手：<br>A：是B吗？我要跟你通信，听得到我说话吗？    //发送SYN包<br>B：可以通信，你听得到我说话吗？                    //返回SYN+ACK包<br>A：我也听得到。                                                //响应ACK，确认收到SYN</p>
-<p>为什么不是二次握手？</p>
-<p>因为，如果第一次握手因某些原因未达到服务器，在某个网络节点滞留，客户端重发SYN包，服务器返回SYN+ACK，成功建立连接，原先滞留的网络节点恢复发送服务端SYN包，服务端认为是两个连接，而客户端认为是一个连接，造成状态不一致，因此三次握手解决了网络信道不可靠问题。</p>
-<p>一包数据有可能被拆成多包发送，如何处理丢包问题；这些包到达顺序不同，如何处理乱序问题</p>
-<p>TCP协议为每个连接建立一个发送缓冲区，从建立连接后的第一个字节序列号为0，后面每个字节序列号加1，<strong>发送数据时</strong>，从发送缓冲区取一部分数据组成发送报文，在其tcp协议中附带序列号和长度，<strong>接收端收到数据后</strong>，需要回复确认报文，确认报文中的ACK=接收序列号+长度=下一包要发送的起始序列号，这样一问一答的发送方式，能够使发送端确认发送的数据已经被对方收到，发送端也可以一次发送连续的多包数据，接收端只需要回复一次ACK就可以，<strong>假设其中丢失了某些包</strong>，丢失了100-299这200个字节，接收端向发送端发送ACK=100的报文，发送端收到后重传这一包数据，<strong>tcp连接是全双工的，两端均采用上述机制。</strong></p>
-<p><img src="/image/image-20220118103053549.png"></p>
-<p>四次挥手：<br>A：呼叫B，我要跟你断开。                //发送FIN包<br>B：知道了，等一下我还有话没说完    //发送ACK包<br>B：我说完了，可以断开了                 //发送FIN包<br>A：好的                                              //发送ACK包</p>
-<p><img src="/image/image-20220118103309671.png"></p>
-<table>
-<thead>
-<tr>
-<th>区别</th>
-<th>TCP</th>
-<th>UDP</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>性能损耗</td>
-<td>多</td>
-<td>少</td>
-</tr>
-<tr>
-<td>CPU资源占用</td>
-<td>多</td>
-<td>少</td>
-</tr>
-<tr>
-<td>传输稳定性</td>
-<td>强</td>
-<td>弱</td>
-</tr>
-<tr>
-<td>应用场景</td>
-<td>对网络通讯质量要求较高，需要准确无误</td>
-<td>适用于实时性要求较高，对少量丢包没要太大要求</td>
-</tr>
-<tr>
-<td>实际应用</td>
-<td>传输文件、发送邮件、浏览网页</td>
-<td>域名查询、语音通话、视频直播、隧道网络</td>
-</tr>
-</tbody></table>
-<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>含义</td>
-<td>检索&amp;&amp;获取</td>
-<td>创建||更新</td>
-</tr>
-<tr>
-<td>大小</td>
-<td>2048字节</td>
-<td>没有限制</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>显示在地址栏</td>
-<td>不显示在地址栏</td>
-</tr>
-<tr>
-<td>提交方式</td>
-<td>通过URL</td>
-<td>放置在HTML header内</td>
-</tr>
-</tbody></table>
-<p><strong>http://</strong><font color="red">华莱士</font>/<font color="blue">菜单</font>？<font color="orange">巨无霸套餐=1份</font></p>
-<p><strong>http://</strong><font color="red"><a href="http://www.mcdonalds.com/">www.mcdonalds.com</a></font>/<font color="blue">menu</font>？<font color="orange">bigmac=1份</font></p>
-<p>华莱士=域名 菜单=路径 巨无霸套餐=请求的参数</p>
-<h3 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h3><p>谷歌浏览器常用版本URL限制是2048个字符</p>
-<p>2MB = 2048KB，1KB = 1024字节，1Byte = 8 bit</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>😨🤡😨</title>
+    <title>😨😨🤡😨😨</title>
     <url>/2022/01/18/%F0%9F%98%A8%F0%9F%A4%A1%F0%9F%98%A8/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你再想想😡😡😡" data-whm="😨😨😨">
   <script id="hbeData" type="hbeData" data-hmacdigest="54b3fbeb3d37a80b4d855b0c8e43cae7ef374e6870bcd9e1cb8313ba8cd353e3">61b9c0d8f4d2ddea56704a026bfc52938d42a7eeb2495a1f0724d536f6c36e8eb3b1b99ad6597030cf82e21a519c8de162301ab076837aab7b2b2fefb4a80e92e6c1f3562e56b01bbc254aae1ef13329967de0854125dab67ac71de1d679020161086da458b7ba354429aa538222b6a2712f65b3e8846efc2ba96c404ca29c0c0861bb7cbb268216a4703a32adc83ed70c0ee66491ad2c805c029175d81db32d8f21c10df42287a480207cc99c8d0a5df6fd1c174a1b6ca2f0b8b8efcac05f1e73a7da747d05745f3fc5222e87adebca7c05d33b9976bab230723950d86d24affa11b7a6a39cc0fddb2bc01613739fa657c36061ad4aa5dbb911016e219340c4ff64e3dacc51af01ad15bb3ea2d233f8d36de85178e61d07407b2c80f2e11a46642df66bb3ed24c2950276f6a44f398ba5c7320cad3e82846943e63614696e489595c3296baa5373e02bee87eeb012e6183cd101661a428c863be37f613c46bee9e8d1131063bf02fe5f9563390302f5ec4e26aec9fabb6abca0f054b2264eb5914a4d0b04b52f6638e4cdcf327b4c388f1f205dd449d395167cf5d93a6792bbd6547c4a51c7e265f3bf10e6492af83dde7506b4027971c4dac1ba8511de391af529f8d9912342c2a26ec439bcc727daf2c4e3f0dd2d11b4fc6171e19d48a86ba008ed423e3cad0411feb0edb68c4a6f5e893c48aef4bed9663122db3c947db9eb80353def70991e663b619fcd936a8cd23e3bed8d2a1c835c77ba62b847580a6e11b426586f150f301c14e882f41da2dca018351fe7322242ea7ffc653ed8ef92dcc72d3ed9bad8ac6b345ff3bdefdf1e1a611f76df4cb4bcfb7c72b0135f887a976d328bb351c0102391ab0b2325fdd50136c90e487acd836bd095976960bb3e44c28e4d1181ae7b67b9b9468f00b99b6b762c5c4eeca773304e494eb55538c094255fe72adf5d3cb18a6029933d63641029a757348ad422875c1c955d38477c34eee512e7928e504c3e655a464ab8cbac5ff36dfd3c76c9e75214ace0bdbd221ab6082ba9efbfd48db6469327e010beef5cd8084d395e0cdf7f6a9c855964fce0938b05e4d0a3e2570460c8c38556ac65298058b3b16a6d9c0b1c6eb9683d340785964b56228f64a3acb096344f2a5c1eb1d162b2dd3a5b07762bad3ec6cbc258149a843a228774a62003072827dfcbf894019677cb543742de145202422b7a21f64613f59e78f06459cf67e8944b9c700adf7a610aa5f531795fc58b38245297439a6317c369652163cae9e80233cc608f335c5e09ae851114090dab59ae0822169568957f7e6b72d82a138530c2b59b4da8b44c02b578726345103914e6b78ab34ceb25f8f203805671c07dd4829dd2c5f248222cbdef5ea68910e1ad069c999033574e02eb899ae74fc97af14c600afaed7db7b0248593ffcb2b47b9f00beb80c4bff6e64d20445026270111e8053b623ebd65ebc9ba55847cfc648cc00441797279640e020fab415d4daeed330ebc1063b1662a6ea34058813af037b12bb5ced0f9712827baca568fa6527b23db93c842b85101093baa560d32b18af69c21d0e4162d709238872c954c4cc95959bafb605d53eb93125e4fd1e82d750112e8ab1036f68a350de6f3479bea64353a1afae41dbdb26972c4fcc6f6bc7ab765018f804f11bd4022299152c62420e6fdad46b0ccccfe473997351d7f37acb972f2e8e778bc45288c033fe0b6ba645f55c34161267750a6eea95b6e4203f74f10717e5d65c0dec2f9853840d8fe3537a47202b4a57566c006e01e00118b05b2afd5fad7d3385de37ab1645f5123c487a67d279cf38deafbd45a7227408e0904b7992416ccc63098543388943452e5d70ecf42c3bef6970f823756cca56e4bead8b90de2d1265a7cf924313f11754b95870e93085f71307b1cbfb24596a2a96b3d780b179c10f9b5ac4d5f25a8b8631243034f3c1aa05fcddd138301eb66a6b5d2b960c5c3a56afb4b9005eb9bc0ea317993d360bfb26268e8376d367af00605b355b8b4c4c512266ef82aca3ae75c56038ebfe1a97a89f596733c43ff0ec83f82c167f2a251a1a7e63f6329ef7ecb78853fc40b0685ed1a3b580b5ce1c58b4515b766c4e4a865a8b8b5d16f4665f9c8d893e55dbe638500e1c58618840cb78da336f842973fec1e322222185d0c08b18d8b3910ecaed72640fbf0891720bdc09e50ef7b152f04e181b659dd0b59d1b940fd22fe96d2e03ad08cf8876f165e1b8e954bd88af0f098ec8af9848b34e8e25f644b576a6cb7c94191ebcc3f4e645c1e34745c571fc46d0e4b8a7609126e758b753a15e4ea864d170434bce31b8ed4b1af93c35744f9df11ed48e5d3b442f8da7e30cd481853dfbe418b0d1716327dbef437fcc48af6902e5d68baf94ab98a79bddf60404e06e01182d0ae6ebca46407d379d2816e0d02f8df037ba048ae4cf8b5556bd7f0c4e12594f860364c48ccac0283c4afc89024e1d110a157c289f503237b95789efbcd4d68f8d8f874b3ee23c8c55b2ae90c59c169b1a64d30415a245462e80dbcac4e96023a0c62425af4f038249c00d6d34de06fc08738a221c6e86bab82b14dca55bcd2a7d4aeff8d5132eab39b21bedd3217272b8662ce989ab0ce539174abd1de45f69eecf1241a0f79c08d7869430c44ac7d7077dc4dbfe13297f53668fc9e183a4497d29d3f84be5c4ecd65c8d788b9162f30b13e8814327a29c4996dd7eaddecf2163aaa64ebfdb90c10982a312ae3e470a5bc1a78a235a19cdfa4339d972ebcb385e412c591be448a8f0915a9d1ed30bd4f953085641fdfadc9b2bbda37f544de49a9c59f12e73c9632526d1809378b1a297c3d1cda39eec594e2d51ab5fa4d6a02e3b17a1c6f3efca62af78658cbfc8d4d2ea482b9e5c68bdf766b5363ffc4300a522bdc9f908da3941d6cf8866746d7ea0b4b52eabab4a32c586f694e792b9ae1d2b46f2cfe56131d95955cb1381ea0a8beabd1d21966d88a0214332030c1639840b1619b6b3432a008f10180b52318bfa8aef7ca2a756c0e6e7bf73d5aaa0ff910c2b509c3f7668931b7a59a2bb890fb66dd482954d70bd9859a83f67e24c29eb9f850a19925203b66215980e4df335994397b6fe6ed6fdbf31061554ca929e380823446a421389532253b464f45514b948efea37402e636d5e69d44ba88a77f60efb177a4bf29ecba6b6f8d711392933e5f112c80c7f661c9c84f089623ce9570a090802593e869a50de57b78fa583995e8ccbf6ff6be9d0cb64e9b1154edfb20a69f20771a2ce639ae116be2fd35e691c327fc7fcdba82edb8a9ef79eb418349f286e23c9917e35956f932adc71cf0eac2272e5b319f362f8871fd5b09d1963fad636a1cc0f0736acde9a9c230d136c1aa9faf62a45f29d8d9d8a2622edeebad9a573f1fcf0c922522880cb455d71336c9e88982e38d1b4fa88150dcd6c734e767b68e536a459f2fc7a0157a1944da77791ef114dac6b57b227fb070ffdaf945246a4941a98d8247cb40f3336b103722d3371a8790eba88a542a5badeadb01c99e24f21558713bd48df8e4d8233069986aa3f63bc4999cfe41533a87f5fa05aa7ce74c29721840e16be66950b799affe079102e07cacf00c812d183123f19f529643c93813f67e998bfa200bfed1f2a276fb7c1826eeed543a78bddc4f76f9288eb81895620a68cd892a494f5139257ca76de9d06c78a04afc8e207be2b3b7fe81b4b5f1facf18517a3abc3ed1800766cf185e1ca0dc53ea41e037515f2a497e8637da6599aac07b0fafe0a0cd9747630efb92ac08861188c49482cb5074bece64689afd7923e8d3c7440a32a1bb94c1cdcb86c3dc70140a96349708ff2f7b1334f78372e57eb1c06ef6519eb66f9d1e2cd525c9539eab967918e304078cad1c7125f27db82883c70a6a1b8fd03be31d442de38ddbc9fc8526e5af185a2d19ddf0393ea71a0e9bb62b2848aa8963c7fea80387caab6f4fee3b2dc3b066cd779a5f692f6a417427a06f7e20e0af40e0d06c88570a614c5f2bdccfe385ef4d3974aa30add710b6ff2f325489f77c5befe617d2f9a4d5dbf836b9fd368969cffcd3293e44c33ce68e2af9f9cea0d0f977dafd9ae44368710d6ea8d97dce0411ed0ea7a58c349e4e8b706c7a316c7f78b993e748e1abb49f59540b6e98ef91f0575fe99a3075168bda6d2df150b49a8f916326e6538ecb83493874937c362ace0edccfb78eae55b81bd1abc2f5f08b3e54d71e69d689c4f003d5a53be93c81b6938303ae4fc6d55fa6567896daf9ce9581deb3efc0f5620dbfac9e8e032d16b41fc1d9758cb07ed583ee42206d6ffb514abfeccd2314419f13ae0c327158e92a3e70ad8bc99d279296efb072ec2cb186466ffdf7cbaa55d3e9e73f212161cc24368c424d1a0ce9e79a1d0aedc1cbc05a46c14bb458bd10b7b697f778a838f708972de4ef37a75b48677c0e248905f8d10e443aebf59545bfa7e6f24b374d3f4b35f10a42e2ea8194abffb7c947db6a0c0c084f6b1731f131cfdcfda01318e77384a6c7c8c3ce5013ae78880d68f459637c63eb5570ade9fc10d2c79ab2e9457a73a16af0c1617dd1f9c428fc72df332928c83a624661fb1ef75de288c5a79fcbdce128178ea622bc2e3d72878b01b7c1788edb7092ae4f5c404435dc204dbf04e43aeea021fffa3442e375a92c3b758e87b498462b7cb3fe8240faa7f6583576334c6c42325709b00c3fb1bb362bff11d7f54b0652f486a8d465f1540ac17b35301a7710d6207b38763b62ba2986d3a5ab0bd22fe17c4b6222fffb9a5933aafce79c64e7b8c72e710fe3eee606a7abe62c987cc818e3e5c7cdea86767193b4363e305ca080166747bcc5c499016c7e8cf8c65017a767154c0387970574c2a1eb0d8a2fe58fc534fddb7a56d64a3cbff5ad2d4895594b3f1834485fc714910f9de7b88124e30162fb401a0827e01926587d3c494faaea7e2e8871fd72e44f9b72b3ca18eaeadd86e083b5f5475c3265f1f743e1413af28f0b64276fa29be2d865ea3ebbe8c0c9e4cd3d0169c67d6b27486d49228d55bc1303cca4751d0b48510c95744aac929bab5bcd03e39a8504053fa061c5b0740480106113c86264252092dfdc0a8c0ea283502b44505578984b68e645b00d287eb40ac2fec9c0ed8045406b873fb22d2dbd0db66fcbd06f5c1ad57c640ffc883894b1d77c45cb7cb17285c676048d2ea8a1fb8fa72936aabffea37a9911119578a329463399f058549d6c123cd994748bcc67c987b3d3b30aa743bf5c168234fa3b9702d72f1dffe7dac0d11394bd9ca012bc9271429860d97e206b8497c3d19e67a2a97ac55a8e71c0466d12f5eff5ba8f1ca0e931e400c8e9dbcd5e7ddce76860d703eeb7816390ea1202c4158b622d293e6f92e2c0a3066259a223cea06babd9a0f2c77ffc0fd011a8138c33f955a282cc9d51b01768734c6388ae1f18b10b21d4d0fb8297c3ab19c0e0e024cf686e7224948b860683c6e5adab1e94ed1e1e38deed314584a241f2925014ee583296b8a8769bc4084228f31f4af5aa3c9bef08954609edefad8e31fc41977eaa9bf6fd645e79eed9226fd570be5c310f10d8b64c06d5cc296c5ce9109dbcf6f084d04fae03458b6c68c626e59f24fb69dba7664163673b3f8b0a3b9151d47acd0ad40883c8666b3222065fce17a80547df5308ae47bf885709138b48c5d361bd4ce9a9b73c1d51666bdebe695da34dd6b46455024248d4d4b81552f80c7f2576131134bea0334b7a42d61cd27a5a999621aa93818469a2888ab01bbbcb21cfce1087f9843df92118668ea0b2af9b32befc5cb90907450d8549603efbbd8a2b4ec11db1a9dfd978b8ad75de12dda994041cf6ee8391119b5e1cce448ad031554f344b675052cf3c03bd897ed64609383033b2e74eb047713de30828c7fca845ba8428b322cc0d33cae6464c4e8d09b6f11175315ea90fc6d8abb4364c2fb9997e2d9e87c5696ad7b0fd18a8f3cea9e109a9e98df63092b9127ae2b0f757059f8f8f17c410c252f74cc0e3349cd0728ab188aec9578c5d281c23dc74414e67f8120c471aad82d54ce12c87123aa23cbd045634f6adc4b8b9ba9a5cd2cb3c6425609de75b87480ce3f65c1f6298f2038c65350bcecdf7f3d8eb31a8f399960feb652670e8533eed3a4fe822d11f097f148fdf8981798097e7451e595def6eb7464b46fe0234801156e688519b63b1516737f81bb141b085c5619edc52a5d0bcd7ca57b681e54b728ee002525e1ecb2b6027a23e3f2d558ee9187dec995c6121e551030eaf6902e02e1a9c7edbc188e832808ecdd3b10052652771b20dc487685995690fada99d025c8cfafdfd8fc460ec9736c59d04ea170da9d7ac3cb1d67be2139e5112bd6f73eb51627790b323e1314d898e5460481debbe722099cb98920ecc752574255fe7ebf12bff7fc3ef3ddaac33f7908582d3122a8953b67079a7d6ab3a0c078c94059b243861ba18c2ff462f005814713a9b803b463dbdc7c2520a398f18af1020e265dfbdfa3d4b2dfe2628f3137dce3b7b60e9d69eecfc25d413e44669181d030a71a914aa2e20fb631fa0c8487d6c26e72f549fd0b1848b2054cbc2265e84f2860c27ec29e9352f1fe96e6a32353905377fa06c765741b3a6b04cfd8d13e1d2db85adeff324cf09bde38798227f79ee70d3879f4edca2f41623ebb8a83fc6873ec67aab68fb4333be7b388a23b094047d47188582e39b590bb3772aed119892d577c9eac3bd31cfe6bb860d5c20d8b96cf026626eca6230e32f6f2993edc0dc36882a27c2383b7af3ef1d474122acd63d84e31cbd8e12c0c13f7f630cb42e7b73c1f41df7332a18056d444015c37bb72681accca442e66a31e9a83a63e4110fd8b61c38b60366ef5a01b06a5f2753c2b0b63cfea482558d83c05fe0bd0f23efd5bb8887812082653dc14bb59099ac8ec558c6818816accf90af2e44a89468681f26a11dba2863d72b1a3325eefa229ccb4d8e5cdf11c21c31fd289518d263c3684be0fba32bff15b7d1f4bbc7ad28128546982251fe2a15105b8f487cc008436b7d3f8efb02d0cc5ee581f8bb58f6505cfd8d0168d4f2179fb6eb52a84bf165eab30693504abdf78c4c17bc1c72c72278b20f3428cae0f02e60e8222d6aed80da5afd7769e2931373e6da41c37ea5ca781736eb5c1fade589f4c4cfa759892b9d02bf9882eb41d32bd1b6e98455a4b6abf53354bf14da41bca690fc54a16469b2822cb89661c5159dbad0d2c4ed1a4563cc05b6bdadcf4b7d54152ed7b0c0e060a4905f3a481929458beecc4bc0dc367a09a457623fd11784d0821a5e41205190ae373d013ae5348f43606b5595d1fe3a849151f62c8562d5064161164c497fb095554a775d275ae3cba8a97ea9bbe53ea301bb2cd8dafc1959f5903d59de9fa256e0f000fe3de85c5b173fb9c6d1a80cf4db5c239c472c2af0629963ad58cca16307cfe3e2d0082fcf82e6685046e6d1942d2141b82fbd79064f7cdbbcbd5fda1b3429f4517cfe425f7308610bf1442d4b289d6e5a4de1cfad35187d8ab34e300985ff829d496111e5cb1f33a056699066f35c933ec65f9ad29fd552aaa0b253c05b030df230c7b38d007731c5b6b1e942377905c5387d3a304e65ea795d1d0cfce5c33fe7ed314120f9c34f42da049d0ee6737e8714d407aff7214c8e2640df49657f5c63934d99a7416ba9d4055a2997e4b5c60cfa06960c4ab8735fbc16f080d2d7b981944b655ad8c8f39acde388218bfed12e06fee5232250d3870f254636cc48b293653a9b43443a98a4b2d3fb8dcd0fed49f20d1883392cd13d7660407a19dd1c582d8ddc2b72b421836f9f12722d877ed77ebace7c678b678702434a3ddd8128741050b5913b81e54839e36cefd4282f695ffc1631a888bd879cfff73e76f7690f23cc281f029228dadd207d4978bc49d020f2d0b05ca89cd00010b3909fdd0a491bdf3fbfaeb0598931d956cec830587e5bae59ca56415c2e8cc9edeaa4be72e56b2e5ef5684b3f87e6db79292bd3d0e6d218e7ecdf2b05ed39b18905ab5fea6a83ca25afc37c99de4b0d35e960a5bac6416cba0da4e973760e10d4c897b90b454b3a0e5dfab874433d41e67694252ab87d8d89dee843eee74eb69a48f2c853de055a4aef03eb90ad42ad495726f375b4340ecdb280810c979d61570598a45df0f8e40623bd0d1f5c969786d20b54d3ba9126802f51ce45d6b2284c6eda373450d131455620eddda599b56ec8d6b53670461c2b866a82965169c42d160e7afecf925bc63d01232cf5cff3e99aae3fd375788bd236b803ec242acbf3a6248c792417b83c8204e2d534b5ac67ebbbe93e32525df3c5cdf2c32158d11b8c4d1bef706300d9a8b01a9eccc6b50c14a3a85d036b568d549ea1746b0c67f30be7ab2e238c24ce8d517b99b57692c7c98704b12baa00f628e4b986d5b44746f0e989041e4730e0b0e4bc7a4804b73520f126c2393279a0401d3d902408673d5fa75f16404041f4390f93b4fec2d07fa50d628152b6e035ec8f1d59d9439966b2ff9fe7ee6e1965fde4681ff39158a71f7a16b7305e2b0d0cb3a2e1bb7ff39cb6baae076b23f802d2163cfba9d5c8a5a6db1cbf28e32690dd24a3cc2831d7761dbab3c75989bc81076cc9e03a27bc70623531b106eeb54fdd1fe45285d29d0375149f688b0eae4facb6e9b23cbb142a0e815c1eea1089740f35c17b00da93bbe15e5abd67ee9d237dfbbcbe440883af0047d438ec3dbda176b74551feeacfdc887c5c1af93e352a1af8db0c95e190b5d3d0f9e6f31edef530c87c3c333ddfc567c73f799804854772316eb88d96602229452f107530146576c2669ab18f0cde79c1f4e81353002b51d3f54cc764f003a8d40114f017a43175a24603a14a3a158136e10fc1dd46e7ffa9b72505b0defe9b0f01d4499229030f76b207ce16aa5e48704e72b43bc0254cc436a1bc6e3e9de236aaabe8aed3253f819c851584e4d1a93091f1add646eeee5c666697e9b44f088598daac82e795f8dfd25b2148075633ac0231aef7c592a47733fe1c4b940951712daa06757b12993832881ffa41d4c75a9c492354704fc2354e4042990dac18600896536b6b8970e0b6ed84eb36b940f07aefb74799202ee4194126596babe11f670e033c5edd8f4821d0a95625a99c1f8dcc1efd8db090f156db1cdcaf351a9b238acf3eaa561a306bbc91e387f168947b0553864164f680579b0d9a35dfc671fe6d9a3b4a214cd5a41875590c4332a5bf9e0e3d6fc69bd45d993402f3852e0fa6ed52f73cb131e26614141dc2838dd285b8e50f9c869dd24f78501316fb564eacd6dce7b3948ace57a676bc136a0b70232d8aed9cdbf7946df42b60af8f0b8a53cb4d1b6947f286867312e4b12768c7f2d9f494bb9ad3c79ebbc6f203ad54d51efc15fbfbf7c788a488409472fd76d7c50c684f07713bfce8a72c9716a21595cea8ef18aca06cc1e921260360a2858d2909959337dce7b75634d95199935a763274decb3fd41c2e04cf20163cc25408c23a55994d1a7f9fbe6c379709c76b85138e7e1cb40b2ecd2954bc25849872fba70a79d75ec87daa938f4bad8ee0bbaed6bde81e8a91375bbc3829b2f39fc1269d6a5e29c841b87ab872677288e25258afc5613f324c72097c110003db467b1a0199f4b71f2583d11594c517818c7f16256c672507ce67f324ba5bb6dd2e335d26c9358226775642a0871274bd968ba8bac2519ed953829cb7dd71a8ffc0db08427abd08914285f8d6794b3ad08e702cab5a601efd7c956acf1ab7c63c18bc2025db7b127c4724312a8e161304d64b9f65c474526b34a81c2c4e1812082b6ae236a3f96560f8e2dae2935ce2a8c306fbbfc92bbc0e2d0aee60c2b71063987872abe6ac07c14fa53cb34ee6e64fe4f5ae7ae0c1e71c41c91d8bd9222ae6f8adcb5e852c89960c38568746859ea83515a2a048cc5ef60b81ce6c292305574c897e67e82440fcb7564cb5147d511121b18faab829bde93b19feb45ffe4b4ea334549a31952bcaba7ad9bb831ee6ef66dc6ef3dcd8bae39d1ec90af272e4a2506c19cf70b94e08b18129ab8641e7e30d823e046281e737bfc9aa303cb0bf424e1bae96a365d7c8d7325c77056f8d28842cb2e937d23708d5c6748ad80c234e8b3c8bf1f1852299385707a76df73f2f74c0c1a1bbd89fb73a9d78d6430ccb0664ffa8ee13cfac187168be07203035254ae15398a7cc092cc4bf2395e49289d20445c0913f5c2b3e566c27e779487c5e6c2ef6efff6ae4c0d7886e19e39128a0be3fa37519805cd6eb82ed8a0adf0cd19807b6f655144568385c90ab4d7db96f29b2b0675d9a64804b5a5ac663dff5af02f00828602da1fcf0bc1be0c055e2a9c1e774fb7d9b0491e363c992086343081c0d991281f7ac61cf0f4ed7ce1d059a6c0c0c0ca10e65f46ef6dda6f79c7b2676a5afd5d775facc6d20e5940a484308fa68df5a3a31440187efc6bbbb84681c41aed606a67568b2baed50f2d221d0f4b07c0d726fd5aa867795ce5244a3ab2936ff0099346a4f3f85d566591349a50a68604023182643d3e39dd714e95c44b77308ee7ae8d9d6399e8148e81e41cea61c887126ef6c2dda701caf9f65</script>
