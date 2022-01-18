@@ -1,6 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo博客搭建</title>
+    <url>/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>通过Nodejs安装hexo，Git来搭建环境。</p>
+<span id="more"></span>
+
+
+    <div id="aplayer-ucdtuGKz" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1842992032" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
+    ></div>
+
+<h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：<code>node -v npm -v</code><br>安装git:<code>git --version</code><br>安装hexo:<code>npm install hexo-cli -g</code><br>hexo指令:使用<code>npx hexo -v</code></p>
+<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:<code>ssh-keygen -t rsa -C &quot;GitHub邮箱地址&quot;</code><br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:<code>ssh -T git@github.com</code></p>
+<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名</p>
+<p><strong>输入指令</strong><br><code>hexo init (文件夹名)</code>   <strong>如果报错，指令加上前缀npx</strong></p>
+<p>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br><code>1.hexo init (文件夹名)</code><br><code>2.hexo g(生成静态页面)</code><br><code>3.hexo s(开启本地服务器)</code><br><code>4.hexo d(上传)</code></p>
+<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
+<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">推荐指数</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://valine.js.org/">Valine</a></td>
+<td align="left">4</td>
+<td align="left">每天30000条评论，10GB的储存</td>
+<td align="left">作者评论无标识</td>
+</tr>
+<tr>
+<td align="left"><a href="https://livere.com/">来必力/livere</a></td>
+<td align="left">4</td>
+<td align="left">多种账号登录</td>
+<td align="left">评论无法导出</td>
+</tr>
+<tr>
+<td align="left"><a href="http://changyan.kuaizhan.com/">畅言</a></td>
+<td align="left">3</td>
+<td align="left">美观</td>
+<td align="left">必须备案域名</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/imsun/gitment">gitment</a></td>
+<td align="left">3</td>
+<td align="left">简洁</td>
+<td align="left">只能登陆github评论</td>
+</tr>
+<tr>
+<td align="left">Disqus</td>
+<td align="left">1</td>
+<td align="left"></td>
+<td align="left">需要翻*墙</td>
+</tr>
+</tbody></table>
+<h3 id="获取APP-ID-和-APP-Key"><a href="#获取APP-ID-和-APP-Key" class="headerlink" title="获取APP ID 和 APP Key"></a>获取APP ID 和 APP Key</h3><p>进入<a href="https://valine.js.org/">Valine</a>官网，请先<a href="https://leancloud.cn/dashboard/login.html#/signin">登录</a>或<a href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> <code>LeanCloud</code>, 进入<a href="https://leancloud.cn/dashboard/applist.html#/apps">控制台</a>后点击左下角<a href="https://leancloud.cn/dashboard/applist.html#/newapp">创建应用</a></p>
+<p><img src="https://i.loli.net/2019/06/21/5d0c995c86fac81746.jpg"></p>
+<p>应用创建好以后，进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了：</p>
+<p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg"></p>
+<p>在config.yml文件中找到leancloud填写得到的app_id与app_key</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PS技巧</title>
+    <url>/2022/01/16/PS%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="混合颜色带"><a href="#混合颜色带" class="headerlink" title="混合颜色带"></a>混合颜色带</h3><p>混合颜色带是混合选项中的一项功能，通过它可以快速选择火焰、烟花、云彩、闪电等色调与背景之间有较大差异的对象。</p>
+<p>通过设置混合颜色带中的通道选项，拖动混合滑块等可以快速隐藏背景，只在画面中显示主体对象，被急藏的区域也可根据需要随时恢复显示。</p>
+<span id="more"></span>
+
+
+    <div id="aplayer-HUEQEaLH" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1403774122" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
+    ></div>
+
+<h4 id="参数解读"><a href="#参数解读" class="headerlink" title="参数解读"></a><strong>参数解读</strong></h4><p><img src="/image/1.png"></p>
+<p>a）在”混合颜色带”下拉列表中可以选择控制混合效果的颜色通道。“灰色”表示使用全部颜色通道控制混合效果。</p>
+<p><img src="/image/image-20220116124749233.png"></p>
+<p>选择其他通道后，PS会依据当前设置的通道颜色信息来确定参与混合的像素。</p>
+<p>b）对话框中还包含了两组混合滑块，即：”本图层”滑块、“下一图层”滑块，它们用来控制当前图层和下面图层在最终的图像中显示的像素。通过移动混合滑块，可根据图像的亮度范围快速创建透明区域。</p>
+<p><img src="/image/image-20220116124814240.png"></p>
+<p>还可定义部分混合像素的范围，从而在混合区域和非混合区域之间产生一种平滑的过渡效果。</p>
+<p>c）**”本图层”指的是当前操作的图层**，拖动”本图层”滑块可以隐藏当前图层中的图像。</p>
+<ul>
+<li>将左侧的黑色滑块向中间移动时，当前图层中色调较暗的像素会逐渐变为透明；</li>
+<li>将右侧的白色滑块向中间移动时，当前图层中色调较亮的像素会逐渐变为透明；</li>
+</ul>
+<p>d）**”下一图层”指的是位于当前图层下面的那一个图层**。移动”下一图层”滑块可以显示下面图层中的的图像。</p>
+<ul>
+<li>将左侧的黑色滑块向中间移动时，可以逐渐显示下面图层中较暗的像素；</li>
+<li>将右侧的白色滑块向中间拖动时，可以逐渐显示下面图层中较亮的像素；</li>
+</ul>
+<p><strong>【小总结】</strong>：用一句简单的话总结，就是：”本图层”负责隐藏，而”下一图层”负责显示。</p>
+<p>e）<strong>按住Alt键单击滑块，可以将其分离</strong>。增加分离后的两个滑块的距离可以在透明区域与非透明区域之间创建平滑的过渡。</p>
+<p><strong>【注意】</strong>：<strong>在通过混合滑块选取对象时，它只是将背景图像隐藏，并不是真正地将其删除</strong>。被隐藏的图像是可以恢复的。</p>
+<p>重新打开”图层样式”对话框后，将滑块拖回原来的起始位置便可以将隐藏的图像显示出来。</p>
+<h4 id="数字的含义"><a href="#数字的含义" class="headerlink" title="数字的含义"></a>数字的含义</h4><p>在”混合颜色带”中，”本图层”和”下一图层”都包含一个渐变条，它们分别代表当前图层中的图像和下面图层中图像的亮度范围，从0（黑）到255（白）。</p>
+<p>在默认状态下，黑色滑块位于渐变条的最左侧，它上面的数字为0，白色滑块位于渐变条的最右侧，它上面的数字为255。</p>
+<p>拖动黑色滑块可设置亮度范围的最低值，拖动白色滑块可设置亮度范围的最高值。拖动某一滑块时，该滑块上方的数字就会发生改变，通过观察数字可以准确地判断出图像中有哪些像素参与了混合，哪些像素被排除在混合效果之外。</p>
+<p><strong>黑色滑块用来设置亮度范围的最低值，因此，如果将该滑块拖动至128处，所有亮度值低于128的像素都将变为透明区域。</strong></p>
+<p><strong>白色滑块用来设置亮度范围的最高值，因此，如果将白色滑块拖动至128处，则所有亮度值大于128的像素将变为透明区域。</strong></p>
+<p>“下一图层”渭块用来控制下面的图层将在最终图像中混合的像素范围，通过移动滑块可以在混合结果中显示下面图层中的图像。</p>
+<p><strong>将”下一图层”中的黑色滑块拖动到128处时，下一图层中亮度值低于128的像素将透过当前图层显示出来。</strong></p>
+<p><strong>将”下一图层”中的白色滑块拖动到128处时，下一图层中亮度值高于128的像素将透过当前图层显示出来。</strong></p>
+<p>如果按住Alt键单击滑块，滑块就可分离。被分开的滑块上方也会出现与之对应的数字，它们代表了部分混合的像素范围。</p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>抠图</tag>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合框架</title>
     <url>/2022/01/15/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h1><hr>
@@ -18,7 +140,7 @@
 <span id="more"></span>
 
 
-    <div id="aplayer-odzCqyxF" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-vQlhyDxq" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1834823818" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -277,75 +399,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建</title>
-    <url>/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>通过Nodejs安装hexo，Git来搭建环境。</p>
-<span id="more"></span>
-
-
-    <div id="aplayer-wFsLAJcn" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="1842992032" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
-    ></div>
-
-<h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：<code>node -v npm -v</code><br>安装git:<code>git --version</code><br>安装hexo:<code>npm install hexo-cli -g</code><br>hexo指令:使用<code>npx hexo -v</code></p>
-<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:<code>ssh-keygen -t rsa -C &quot;GitHub邮箱地址&quot;</code><br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:<code>ssh -T git@github.com</code></p>
-<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名<br>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br><code>1.hexo init (文件夹名)</code><br><code>2.hexo g(生成静态页面)</code><br><code>3.hexo s(开启本地服务器)</code><br><code>4.hexo d(上传)</code></p>
-<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
-<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">推荐指数</th>
-<th align="left">优点</th>
-<th align="left">缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://valine.js.org/">Valine</a></td>
-<td align="left">4</td>
-<td align="left">每天30000条评论，10GB的储存</td>
-<td align="left">作者评论无标识</td>
-</tr>
-<tr>
-<td align="left"><a href="https://livere.com/">来必力/livere</a></td>
-<td align="left">4</td>
-<td align="left">多种账号登录</td>
-<td align="left">评论无法导出</td>
-</tr>
-<tr>
-<td align="left"><a href="http://changyan.kuaizhan.com/">畅言</a></td>
-<td align="left">3</td>
-<td align="left">美观</td>
-<td align="left">必须备案域名</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/imsun/gitment">gitment</a></td>
-<td align="left">3</td>
-<td align="left">简洁</td>
-<td align="left">只能登陆github评论</td>
-</tr>
-<tr>
-<td align="left">Disqus</td>
-<td align="left">1</td>
-<td align="left"></td>
-<td align="left">需要翻*墙</td>
-</tr>
-</tbody></table>
-<h3 id="获取APP-ID-和-APP-Key"><a href="#获取APP-ID-和-APP-Key" class="headerlink" title="获取APP ID 和 APP Key"></a>获取APP ID 和 APP Key</h3><p>进入<a href="https://valine.js.org/">Valine</a>官网，请先<a href="https://leancloud.cn/dashboard/login.html#/signin">登录</a>或<a href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> <code>LeanCloud</code>, 进入<a href="https://leancloud.cn/dashboard/applist.html#/apps">控制台</a>后点击左下角<a href="https://leancloud.cn/dashboard/applist.html#/newapp">创建应用</a></p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c995c86fac81746.jpg"></p>
-<p>应用创建好以后，进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了：</p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg"></p>
-<p>在config.yml文件中找到leancloud填写得到的app_id与app_key</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot笔记</title>
     <url>/2022/01/15/SpringBoot%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>😤！🤔🍑？⚡︎🌪🔪</p>
@@ -358,7 +411,7 @@
 <span id="more"></span>
 
 
-    <div id="aplayer-GlaepYgu" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-mZmnqVZv" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="96520" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -391,13 +444,34 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/01/14/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>基本操作</title>
     <url>/2022/01/14/%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="为文章添加多个分类"><a href="#为文章添加多个分类" class="headerlink" title="为文章添加多个分类"></a>为文章添加多个分类</h2><p>1）下面文章属于三个分类：日常 &gt; 生活，日常 &gt; 随想，日记<br>2）其中生活、随想为日常的子分类，日常和日记为同级分类</p>
 <span id="more"></span>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-    <div id="aplayer-UGLggudo" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ECJjGMXb" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1868837988" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
@@ -535,6 +609,12 @@
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h3><p>安装插件后目录下的中文目录出现问题</p>
+<p>解决方法：在主题文件下的aplayer加入下列代码</p>
+<p>​    <code>aplayer:</code></p>
+<p> <code>meting: true</code></p>
+<p> <code>asset_inject: false</code></p>
+<p>但是会导致插件失灵，无法载入音乐</p>
 <h3 id="标签参数"><a href="#标签参数" class="headerlink" title="标签参数"></a>标签参数</h3><ul>
 <li><code>title</code> : 曲目标题</li>
 <li><code>author</code>: 曲目作者</li>
@@ -652,21 +732,137 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/01/14/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>计算机基础知识</title>
+    <url>/2022/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>记录计算机知识</p>
+<span id="more"></span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Cookie、Session、Token区别"><a href="#Cookie、Session、Token区别" class="headerlink" title="Cookie、Session、Token区别"></a>Cookie、Session、Token区别</h3><p>sessionid是存在服务器内存里，session保存的用户信息存在服务器内存或数据库，<br>cookie接收保存服务器发来的sessionid，然后每次浏览器发送请求就会带上cookie的数据。<br>token是服务器加密的用户信息，服务器将token发给浏览器，浏览器用cookie或storage保存cookie。然后浏览器每次发送请求就带上token，服务器将其解密并确认用户登录。</p>
+<h3 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h3><p>三次握手：<br>A：是B吗？我要跟你通信，听得到我说话吗？    //发送SYN包<br>B：可以通信，你听得到我说话吗？                    //返回SYN+ACK包<br>A：我也听得到。                                                //响应ACK，确认收到SYN</p>
+<p>为什么不是二次握手？</p>
+<p>因为，如果第一次握手因某些原因未达到服务器，在某个网络节点滞留，客户端重发SYN包，服务器返回SYN+ACK，成功建立连接，原先滞留的网络节点恢复发送服务端SYN包，服务端认为是两个连接，而客户端认为是一个连接，造成状态不一致，因此三次握手解决了网络信道不可靠问题。</p>
+<p>一包数据有可能被拆成多包发送，如何处理丢包问题；这些包到达顺序不同，如何处理乱序问题</p>
+<p>TCP协议为每个连接建立一个发送缓冲区，从建立连接后的第一个字节序列号为0，后面每个字节序列号加1，<strong>发送数据时</strong>，从发送缓冲区取一部分数据组成发送报文，在其tcp协议中附带序列号和长度，<strong>接收端收到数据后</strong>，需要回复确认报文，确认报文中的ACK=接收序列号+长度=下一包要发送的起始序列号，这样一问一答的发送方式，能够使发送端确认发送的数据已经被对方收到，发送端也可以一次发送连续的多包数据，接收端只需要回复一次ACK就可以，<strong>假设其中丢失了某些包</strong>，丢失了100-299这200个字节，接收端向发送端发送ACK=100的报文，发送端收到后重传这一包数据，<strong>tcp连接是全双工的，两端均采用上述机制。</strong></p>
+<p><img src="/image/image-20220118103053549.png"></p>
+<p>四次挥手：<br>A：呼叫B，我要跟你断开。                //发送FIN包<br>B：知道了，等一下我还有话没说完    //发送ACK包<br>B：我说完了，可以断开了                 //发送FIN包<br>A：好的                                              //发送ACK包</p>
+<p><img src="/image/image-20220118103309671.png"></p>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>性能损耗</td>
+<td>多</td>
+<td>少</td>
+</tr>
+<tr>
+<td>CPU资源占用</td>
+<td>多</td>
+<td>少</td>
+</tr>
+<tr>
+<td>传输稳定性</td>
+<td>强</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>对网络通讯质量要求较高，需要准确无误</td>
+<td>适用于实时性要求较高，对少量丢包没要太大要求</td>
+</tr>
+<tr>
+<td>实际应用</td>
+<td>传输文件、发送邮件、浏览网页</td>
+<td>域名查询、语音通话、视频直播、隧道网络</td>
+</tr>
+</tbody></table>
+<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>POST</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>含义</td>
+<td>检索&amp;&amp;获取</td>
+<td>创建||更新</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>2048字节</td>
+<td>没有限制</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>显示在地址栏</td>
+<td>不显示在地址栏</td>
+</tr>
+<tr>
+<td>提交方式</td>
+<td>通过URL</td>
+<td>放置在HTML header内</td>
+</tr>
+</tbody></table>
+<p><strong>http://</strong><font color="red">华莱士</font>/<font color="blue">菜单</font>？<font color="orange">巨无霸套餐=1份</font></p>
+<p><strong>http://</strong><font color="red"><a href="http://www.mcdonalds.com/">www.mcdonalds.com</a></font>/<font color="blue">menu</font>？<font color="orange">bigmac=1份</font></p>
+<p>华莱士=域名 菜单=路径 巨无霸套餐=请求的参数</p>
+<h3 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h3><p>谷歌浏览器常用版本URL限制是2048个字符</p>
+<p>2MB = 2048KB，1KB = 1024字节，1Byte = 8 bit</p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>😨🤡😨</title>
+    <url>/2022/01/18/%F0%9F%98%A8%F0%9F%A4%A1%F0%9F%98%A8/</url>
+    <content><![CDATA[<p>马戏团里你最忙，哥谭市里你最狂。<br>麦当劳前你站岗，扑克牌里大小王。🤭</p>
+<span id="more"></span>
+
+<h2 id="抽象文化"><a href="#抽象文化" class="headerlink" title="抽象文化"></a>抽象文化</h2><h3 id="🤡"><a href="#🤡" class="headerlink" title="🤡"></a>🤡</h3><p>🤣🤣🤣🤣🤣🤣🤣<br>🤣🤭🤭🤭🤭🤭🤣<br>🤣🤭😆😆😆🤭🤣<br>🤣🤭😆🤡😆🤭🤣<br>🤣🤭😆😆😆🤭🤣<br>🤣🤭🤭🤭🤭🤭🤣<br>🤣🤣🤣🤣🤣🤣🤣</p>
+<h3 id="枝江偶像是传奇"><a href="#枝江偶像是传奇" class="headerlink" title="枝江偶像是传奇"></a>枝江偶像是传奇</h3><p>嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤，嘿嘿….然然🤤🤤</p>
+<h5 id="可是蒂娜我……"><a href="#可是蒂娜我……" class="headerlink" title="可是蒂娜我……"></a>可是蒂娜我……</h5><p>hello hello😆😆<br>啊，听得到吗？😮😮<br>ki koei de yi ma si ka？😄💧<br>初次见面，请多关照呀！😘😘<br>这里是嘉然Diana，大家也可以叫我蒂娜😊😊<br>是你们最甜甜甜的小草莓😽😽<br>锵锵！😝😝<br>梦想是成为偶像，然后全国巡演，吃遍大江南北🤤🤤<br>（what！！）<br>但是，蒂娜我超级不擅长吃辣辣的东西的。。。。。😖😖<br>（咚咚）😄💧<br>emm。。有一回点了一份辣子鸡，只是吃了那么一小小口，辣的半天说不出话啦！🤬🤬<br>Diana我好想点上吃辣的技能呀！😣😣<br>咳咳。。怎么一直在说吃的呀，要是被发现就糟糕惹😱😱<br>练习<del>练习</del>😤😤<br>啦啦啦啦啦😆😆<br>这次的新单曲超级好听的，真想让你们快点听到呀😚😚<br>为了给米娜桑展现出最完美的舞台效果，Diana我每天都有在认真练习呢😎😎<br>不要不信嘛~🥺🥺<br>真的有在好好练习的😳😳<br>A手的大家都可以为我做证！🤗🤗<br>现在。。。现在是劳逸结合时间😎😎<br>嗯嗯😋😋<br>不算啦不算啦😜😜<br>你们要为我保密哦！🙇🙇🙇🙇</p>
+<h5 id="泥头车🥵🥵🥵"><a href="#泥头车🥵🥵🥵" class="headerlink" title="泥头车🥵🥵🥵"></a>泥头车🥵🥵🥵</h5><p>马力已全开来接受我的制裁🤗🤗🤗<br>把你创成肉泥沾满我的轮胎🤗🤗🤗<br>我化身七海  时速一伯迈🤗🤗🤗<br>不把你创烂 一刻都不能忍耐🤗🤗🤗<br>别说我起步有一点快🤗🤗🤗<br>光是你在就受不了🤗🤗🤗<br>油门往底盘里踩🤗🤗🤗<br>呜呜呜呜呜呜🚚🚚🚚</p>
+<h2 id="感性贤者"><a href="#感性贤者" class="headerlink" title="感性贤者"></a>感性贤者</h2><p>​    谁是谁并不重要，你终究要和她们告别去向下一个阶段。正如视频里出现的很多人物和画面，他们有的留下的印象是好的，有的是坏的，但他们或多或少都曾陪伴过你。我想，如果as能在这有限的时间里，在大家奔向下一个阶段之前，留下积极的正向的印象，才是最好的。不用想那么多，安安静静地观看或者参与到名为as的故事中，然后在下一阶段到来时渐渐离去，不也很浪漫吗。有些事情真的不重要，终究都是过客，重要的是你能从中获得什么。人生就是如此，在不断的相识和分别中成长，聚散终有时，不变唯初心。来源——————“你是不是向晚…”评论区</p>
+<p>​    康定斯基的构图系列，没有明确的主题与目的、并不是想要激起一种情绪或是声音，甚至没有一段完整的话，但每位观众都能看得五味杂陈，有所感悟。“混乱的逻辑，无序的素材，肆意的缝合”来源——————“你是不是向晚…”评论区</p>
+<h2 id="胡言乱语"><a href="#胡言乱语" class="headerlink" title="胡言乱语"></a>胡言乱语</h2><p>​    人穷莫入众，言轻莫劝人。</p>
+<p>​    有些人对同类都没有同理之心，格局太小，心里没有博爱，对个牲口却异常亲近。逻辑思维混乱，借古讽今成了道德绑架，冠冕堂皇说别人不努力，即使是现在的中国，依然有部分人都吃不上饱饭，把这种视频放在网上，肯定有为其感叹之人，可惜心怀博爱在这个时代是错的，都是精致利己主义者，甚至成了大流，劣币驱逐良币。</p>
+<h2 id="经典好句"><a href="#经典好句" class="headerlink" title="经典好句"></a>经典好句</h2><p>再一次，作为人类活下去——《迪迦奥特曼》第四集《再见了，地球》</p>
+<p>还给他，那孩子的梦想是属于他的——《迪迦奥特曼》第八集《万圣节的夜晚》</p>
+<p>在别人失败的时候嘲笑他，最可耻了——《迪迦奥特曼》第十集《封闭的游乐园》</p>
+<p>不要再和别人竞争啦——《迪迦奥特曼》第十一集《安魂曲》</p>
+<p>海洋是我们大家的，不能使大海受到污染——《迪迦奥特曼》第十二集《深海来的SOS》</p>
+<p>勇士经常是孤独的，勇士必须连续作战，保持胜利的战果，因此就变得非常孤独。你能忍受么？——《迪迦奥特曼》第十六集《鬼神醒来》</p>
+<p>科学技术的价值，在于使用者的意图——《迪迦奥特曼》第十九集《奔向宇宙(上篇)》</p>
+<p>以前的村子不会再回来了——《迪迦奥特曼》第二十七集《看见了，奥比克》</p>
+<p>人类一旦习惯了使用方便的东西，再回头很难啊——《迪迦奥特曼》第二十八集《呼唤》</p>
+<p>只要还活着，就一定要尽我所能做些什么——《迪迦奥特曼》第三十二集《滋尔达中心的攻防》</p>
+<p>这么没精神，笑一笑好不好——《迪迦奥特曼》第三十六集《超越时空的微笑》</p>
+<p>人们之所以敬仰你，是因为你拥有每一个人都拥有的东西 勇气与爱的力量——《迪迦奥特曼》第三十九集《你好，奥特曼》</p>
+<p>这是一场由人心引发的战争——《迪迦奥特曼》第四十四集《连影》</p>
+<p>人类的欲望，比齐杰拉的根还深——《迪迦奥特曼》第四十五集《生命永存》</p>
+<p>我们需要一个英雄，金城，英雄是必要的——《迪迦奥特曼》第四十九集《奥特之星》</p>
+<p>难道说奥特曼就有义务一个人承担保护地球的责任吗——《迪迦奥特曼》第五十集《飞得更高》</p>
+<p>根本赢不了，我听不懂——《迪迦奥特曼》第五十一集《黑暗的支配者》</p>
+<p>这才是真正的光芒——《迪迦奥特曼》第五十二集《致以辉煌的人</p>
+<h2 id="大众文化"><a href="#大众文化" class="headerlink" title="大众文化"></a>大众文化</h2><p>考前三天：饮酒乐甚，扣舷而歌之。<br>考前两天：如怨如慕，如泣如诉。<br>考前一天：哀吾生之须臾，羡长江之无穷。<br>考前十二小时：知不可乎骤得，托遗响于悲风。<br>考场上：浩浩乎如冯虚御风，而不知其所止。<br>考试后：飘飘忽然遗世独立，羽化而登仙。</p>
+]]></content>
+      <categories>
+        <category>🤡</category>
+      </categories>
+      <tags>
+        <tag>🤡</tag>
+      </tags>
   </entry>
 </search>

@@ -1,0 +1,71 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "aug",
+    "model": "model.moc",
+    "textures": ["model.1024/texture_00.png"],
+    "layout": {
+        "center_x": 0,
+        "y": 2,
+        "width": 3
+    },
+    "hit_areas": [{
+        "name": "head",
+        "id": "D_REF.HEAD"
+    },{
+        "name": "leg",
+        "id": "D_PSD.02"
+    }, {
+        "name": "body",
+        "id": "D_REF.BODY"
+    }],
+    "motions": {
+        "idle": [{
+            "file": "motions/daiji_idle_01.mtn",
+            "fade_in": 2000,
+            "fade_out": 2000
+        }, {
+            "file": "motions/wait_1.mtn",
+            "fade_in": 2000,
+            "fade_out": 2000
+        }, {
+            "file": "motions/wait_2.mtn",
+            "fade_in": 2000,
+            "fade_out": 2000
+        }],
+        "tap_body": [{
+            "file": "motions/wedding_touch.mtn",
+            "fade_in": 500,
+            "fade_out": 200,
+            "sound": "music/AUG_DIALOGUEWEDDING_JP.wav"
+        }, {
+            "file": "motions/wedding_touch.mtn",
+            "fade_in": 500,
+            "fade_out": 200,
+            "sound": "music/AUG_DIALOGUE2_JP.wav"
+        }],
+        "tap_head": [{
+            "file": "motions/touch_3.mtn",
+            "fade_in": 500,
+            "fade_out": 200,
+            "sound": "music/AUG_DIALOGUE3_JP.wav"
+        }],
+        "tap_leg": [{
+            "file": "motions/touch_2.mtn",
+            "fade_in": 500,
+            "fade_out": 200,
+            "sound": "music/AUG_DIALOGUE2_JP.wav"
+        }],
+        "shake": [{
+            "file": "motions/shake.mtn",
+            "fade_in": 500
+        }, {
+            "file": "motions/touch_4.mtn",
+            "sound": "music/AUG_BUILDOVER_JP.wav",
+            "fade_in": 500
+        }, {
+            "file": "motions/touch_5.mtn",
+            "sound": "music/AUG_SOULCONTRACT_JP.wav",
+            "fade_in": 500
+        }]
+    }
+}
