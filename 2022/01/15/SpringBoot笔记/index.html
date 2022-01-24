@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">3.9k</span>
+            <span class="post-count">4.9k</span>
         </span>
     </span>
 
@@ -99,7 +99,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">18 分钟</span>
+            <span class="post-count">22 分钟</span>
         </span>
     </span>
 </div>
@@ -124,10 +124,38 @@
 <span id="more"></span>
 
 
-    <div id="aplayer-jhzbLfOE" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-CtuTgkfZ" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="96520" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
     ></div>
 
+<h3 id="层级理解"><a href="#层级理解" class="headerlink" title="层级理解"></a>层级理解</h3><h5 id="Dao层"><a href="#Dao层" class="headerlink" title="Dao层"></a>Dao层</h5><p>持久层，主要与数据库交互</p>
+<p>DAO层首先会创建Dao接口，接着就可以在配置文件中定义该接口的实现类；接着就可以在模块中调用Dao的接口进行数据业务的处理，而不用关注此接口的具体实现类是哪一个类，Dao层的数据源和数据库连接的参数都是在配置文件中进行配置的。</p>
+<p><code>@Repository</code></p>
+<h5 id="Entity层"><a href="#Entity层" class="headerlink" title="Entity层"></a>Entity层</h5><p>实体层，数据库在项目中的类</p>
+<p>主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用JPA注解配置映射关系</span></span><br><span class="line"><span class="meta">@Entity</span> <span class="comment">//告诉JPA这是一个实体类（和数据表映射的类）</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tbl_user&quot;)</span> <span class="comment">//@Table来指定和哪个数据表对应;如果省略默认表名就是user；</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="comment">//这是一个主键</span></span><br><span class="line"><span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span><span class="comment">//自增主键</span></span><br><span class="line"><span class="keyword">private</span> Integer id;</span><br><span class="line"><span class="meta">@Column(name = &quot;last_name&quot;,length = 50)</span> <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line"><span class="keyword">private</span> String lastName;</span><br><span class="line"><span class="meta">@Column</span> <span class="comment">//省略默认列名就是属性名</span></span><br><span class="line"><span class="keyword">private</span> String email;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Controller层"><a href="#Controller层" class="headerlink" title="Controller层"></a>Controller层</h5><p>控制层 控制业务逻辑</p>
+<p>具体的业务模块流程的控制，controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行。</p>
+<p><code>@RestController</code>结合了<code>@Controller</code>和<code>@ResponseBody</code>，表示这个接口里面所有的方法都返回json数据，<code>@RequestBody</code>用来转化json数据为java对象，<code>@RequestBody</code>用于从前端接收json数据，转换为查询对象并传递到接口执行查询；<code>@ReponseBody</code>为后端向前端返回json数据</p>
+<h5 id="Service层"><a href="#Service层" class="headerlink" title="Service层"></a>Service层</h5><p>业务层 控制业务</p>
+<p><code>@Service</code></p>
+<p>业务模块的逻辑应用设计，和DAO层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用接口进行业务逻辑应用的处理。</p>
+<p>好处：封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p>
+<p>Controller和Service的区别是：Controller负责具体的业务模块流程的控制；Service层负责业务模块的逻辑应用设计</p>
+<p>具体的一个项目中有：controller层调用了Service层的方法，Service层调用Dao层的方法，其中调用的参数是使用Entity层进行传递的。</p>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><h5 id="idea中-Table注解报错can-not-resolve-table"><a href="#idea中-Table注解报错can-not-resolve-table" class="headerlink" title="idea中@Table注解报错can not resolve table"></a>idea中@Table注解报错can not resolve table</h5><p>在idea中创建实体类使用@Table注解时，@Table(name=“user”)一直报错，提示 can not resolve table ‘user’，如果不在idea中连接数据库，那么就会出现这个情况，虽然不影响最后的运行结果，但是飘红真的看着很不舒服。</p>
+<p>点击最右边的竖着的Database选项卡，弹出这个页面，点击上面的+号，选择Data Source，然后根据自己的情况选择要连接的数据库，我使用mysql，所以选择mysql</p>
+<p><img src="https://img-blog.csdnimg.cn/2020031716281549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTk1Nzc4,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200317163119285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTk1Nzc4,size_16,color_FFFFFF,t_70"></p>
+<p>根据情况填写host，然后填写用户名和密码即可，点击测试连接，如果没有驱动会提示让你下载驱动，很快的，不耽搁。但是，如果驱动下载完毕后，测试连接出现<br>Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezon’<br>说明是你的时区有问题，我知道你们有人要直接在url地址栏中自己拼时区了，不用试了我已经帮你们试过了，没法<br>下面说怎么解决。Win+R进cmd连上数据库后，复制以下指令，记住后面有个分号别忘了<br>show variables like “%time_zone%”;<br>然后继续，记住分号别忘了<br>set global time_zone = ‘+8:00’;<br>ps:这个是一次性的，关机或者重启mysql服务，这个设置就会失效，如果要永久修改时区，在my.ini中添加<br>default-time-zone=’+08:00’</p>
+<p>注意一定要在 [mysqld] 之下加 ，否则会出现 unknown variable ‘default-time-zone=+8:00’</p>
+<p>然后重启mysql服务即可</p>
+<p>返回你的实体类，发现还是报错，需要分配数据源</p>
+<p><img src="https://img-blog.csdnimg.cn/20200317164045712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTk1Nzc4,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200317164231993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTk1Nzc4,size_16,color_FFFFFF,t_70"></p>
+<p><img src="D:\blog\blog\source\image\watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTk1Nzc4,size_16,color_FFFFFF,t_70.png"></p>
+<p>在右边的Data Source中，选择关联的mysql，点击ok，回来在看，飘红解决，其实飘红也无所谓的，不影响运行结果，前提是写对字段和表名了。</p>
 <h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><h4 id="web-静态资源"><a href="#web-静态资源" class="headerlink" title="web-静态资源"></a>web-静态资源</h4><p>静态资源默认访问路径在static文件夹下，可通过下面指令更改</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  web:</span><br><span class="line">    resources:</span><br><span class="line">      static-locations: classpath:/image/</span><br></pre></td></tr></table></figure>
 
