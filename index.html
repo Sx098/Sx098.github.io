@@ -160,6 +160,129 @@
     
     
     <article
+  id="post-项目踩坑记录"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/01/28/%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"
+    >项目踩坑记录</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/28/%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2022-01-28T05:49:15.000Z" itemprop="datePublished">2022-01-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a> / <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>实操从零搭建项目的步骤以及整个过程中遇到的问题</p> 
+      <a class="article-more-link" href="/2022/01/28/%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElementUI/" rel="tag">ElementUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-Vue笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/01/27/Vue%E7%AC%94%E8%AE%B0/"
+    >Vue笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/27/Vue%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2022-01-27T06:11:06.000Z" itemprop="datePublished">2022-01-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
+
+<h3 id="ElementUI安装"><a href="#ElementUI安装" class="headerlink" title="ElementUI安装"></a>ElementUI安装</h3><p>1.在Vue项目目录下 输入  npm install element-ui -S<br>2.在main.js文件中 引入 element 组件 ：</p>
+<p>import ElementUI from ‘element-ui’<br>import ‘element-ui/lib/theme-chalk/index.css’;<br>Vue.use(ElementUI)</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h5 id="component-has-been-registered-but-not-used-vue-no-unused-components"><a href="#component-has-been-registered-but-not-used-vue-no-unused-components" class="headerlink" title="component has been registered but not used  vue/no-unused-components"></a>component has been registered but not used  vue/no-unused-components</h5><p>组件导入了，且再componets中注册了，也在模板中使用了 ，但是依然报错：error The “Form” component has been registered but not used vue/no-unused-components，组件注册了，但是没有使用。</p>
+<p>解决方法：将模板中的组件名首字母改成大写（因为组件名称只有一个驼峰）</p>
+<h3 id="跳转页面"><a href="#跳转页面" class="headerlink" title="跳转页面"></a>跳转页面</h3><p>1.在Vue项目目录下 输入  npm install vue-router<br>2.在main.js文件中 引入 vue-router组件 ：</p>
+<p>import VueRouter from ‘vue-router’;<br>import router from ‘./router’;(配置router，新建router文件夹创建index.js文件)<br>Vue.use(VueRouter)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&quot;vue-router&quot;</span>;		<span class="comment">//引入router插件</span></span><br><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">&#x27;../components/Login&#x27;</span>	<span class="comment">//引入要跳转的页面</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;../components/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Menu <span class="keyword">from</span> <span class="string">&#x27;../components/Menu&#x27;</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;history&#x27;</span>,</span><br><span class="line">    <span class="attr">base</span>: process.env.BASE_URL,</span><br><span class="line">    <span class="attr">routes</span>:[</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">path</span>:<span class="string">&#x27;/Home&#x27;</span>,</span><br><span class="line">            <span class="attr">component</span>:Home</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">          <span class="comment">// route level code-splitting</span></span><br><span class="line">          <span class="comment">// this generates a separate chunk (about.[hash].js) for this route</span></span><br><span class="line">          <span class="comment">// which is lazy-loaded when the route is visited.</span></span><br><span class="line">          <span class="attr">component</span>: Login</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">path</span>:<span class="string">&#x27;/Menu&#x27;</span>,</span><br><span class="line">            <span class="attr">component</span>:Menu</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding: 10px; width: 90%&quot;</span> &gt;</span></span><br><span class="line">    //router-link点击会跳转到指定链接</span><br><span class="line">     <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/Login&quot;</span>&gt;</span>demo2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/Home&quot;</span>&gt;</span>home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    //router-view会显示指令链接的内容</span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在App.vue的template中使用<Menu>，menu.vue中的template输入上面代码引用指定链接页面</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElementUI/" rel="tag">ElementUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-MyBatis笔记"
   class="article article-type-post"
   itemscope
@@ -630,125 +753,8 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag">知识</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag">知识</a></li></ul>
 
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-Hexo博客搭建"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-    >Hexo博客搭建</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
-  <time datetime="2022-01-14T12:49:03.000Z" itemprop="datePublished">2022-01-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>通过Nodejs安装hexo，Git来搭建环境。</p> 
-      <a class="article-more-link" href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag">知识</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-hello-world"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/01/14/hello-world/"
-    >Hello World</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/01/14/hello-world/" class="article-date">
-  <time datetime="2022-01-14T06:26:53.661Z" itemprop="datePublished">2022-01-14</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
     </footer>
   </div>
 

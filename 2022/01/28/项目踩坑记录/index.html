@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="个人学习" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>项目踩坑记录 |  Meteor</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="https://pic.imgdb.cn/item/61e156832ab3f51d91675030.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-项目踩坑记录"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  项目踩坑记录
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/28/%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2022-01-28T05:49:15.000Z" itemprop="datePublished">2022-01-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a> / <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>实操从零搭建项目的步骤以及整个过程中遇到的问题</p>
+<span id="more"></span>
+
+<h3 id="前后端分离，完成管理系统的CRUD"><a href="#前后端分离，完成管理系统的CRUD" class="headerlink" title="前后端分离，完成管理系统的CRUD"></a>前后端分离，完成管理系统的CRUD</h3><p>前端使用Vue框架，element-ui完成ui以及布局，jquery和ajax来与后端进行交互<br>后端使用springboot框架，mybatis-plus进行数据库操作，mybatis-plus-generator依赖自动生成代码</p>
+<h4 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h4><h5 id="大概步骤"><a href="#大概步骤" class="headerlink" title="大概步骤"></a>大概步骤</h5><p>①在要生成项目的文件夹下打开cm执行<code>vue create vue_test</code><br>②在项目目录下安装模块，<br>npm install element-ui -S<br>npm install jquery –save<br>③在App.vue引入模块<br><code>import ElementUI from &#39;element-ui&#39;</code><br><code>import &#39;element-ui/lib/theme-chalk/index.css&#39;;</code><br><code>import$ from ``&#39;jquery&#39;</code><br>④开始编写前端页面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>用户信息<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入样式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;element.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 80%; margin: 0 auto&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>用户信息表<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-row</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;6&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-bottom: 10px&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;add&quot;</span>&gt;</span>新增<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;name&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 70%&quot;</span> @<span class="attr">keyup.enter.native</span>=<span class="string">&quot;loadTable(1)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-table</span></span></span><br><span class="line"><span class="tag">            <span class="attr">:data</span>=<span class="string">&quot;page.records&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">stripe</span></span></span><br><span class="line"><span class="tag">            <span class="attr">border</span></span></span><br><span class="line"><span class="tag">            <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">prop</span>=<span class="string">&quot;name&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;用户名&quot;</span></span></span><br><span class="line"><span class="tag">        &gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">prop</span>=<span class="string">&quot;age&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;年龄&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">prop</span>=<span class="string">&quot;sex&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;性别&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">prop</span>=<span class="string">&quot;address&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;地址&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">prop</span>=<span class="string">&quot;phone&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;电话&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">                <span class="attr">fixed</span>=<span class="string">&quot;right&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">label</span>=<span class="string">&quot;操作&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">width</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-edit&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> <span class="attr">circle</span> @<span class="attr">click</span>=<span class="string">&quot;edit(scope.row)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;danger&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-delete&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> <span class="attr">circle</span> @<span class="attr">click</span>=<span class="string">&quot;del(scope.row.id)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-row</span> <span class="attr">type</span>=<span class="string">&quot;flex&quot;</span> <span class="attr">justify</span>=<span class="string">&quot;center&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-top: 10px&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-pagination</span></span></span><br><span class="line"><span class="tag">                <span class="attr">layout</span>=<span class="string">&quot;prev, pager, next&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:page-size</span>=<span class="string">&quot;pageSize&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:current-page</span>=<span class="string">&quot;pageNum&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">prev-click</span>=<span class="string">&quot;loadTable&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">current-change</span>=<span class="string">&quot;loadTable&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">next-click</span>=<span class="string">&quot;loadTable&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:total</span>=<span class="string">&quot;page.totalElements&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-pagination</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">            <span class="attr">title</span>=<span class="string">&quot;用户信息&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogVisible&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">width</span>=<span class="string">&quot;30%&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">ref</span>=<span class="string">&quot;form&quot;</span> <span class="attr">:model</span>=<span class="string">&quot;form&quot;</span> <span class="attr">label-width</span>=<span class="string">&quot;80px&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;年龄&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.age&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;性别&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">&quot;form.sex&quot;</span> <span class="attr">label</span>=<span class="string">&quot;男&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">&quot;form.sex&quot;</span> <span class="attr">label</span>=<span class="string">&quot;女&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;地址&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.address&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;电话&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.phone&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">slot</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dialog-footer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;dialogVisible = false&quot;</span>&gt;</span>取 消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;save&quot;</span>&gt;</span>确 定<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 引入组件库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;element.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">page</span>: &#123;&#125;,</span></span><br><span class="line"><span class="javascript">            <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">pageNum</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">pageSize</span>: <span class="number">8</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">dialogVisible</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">form</span>: &#123;&#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.loadTable(<span class="built_in">this</span>.pageNum);</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">loadTable</span>(<span class="params">num</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.pageNum = num;</span></span><br><span class="line"><span class="javascript">                $.get(<span class="string">&quot;/user/page?pageNum=&quot;</span> + <span class="built_in">this</span>.pageNum + <span class="string">&quot;&amp;pageSize=&quot;</span> + <span class="built_in">this</span>.pageSize + <span class="string">&quot;&amp;name=&quot;</span> + <span class="built_in">this</span>.name).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.page = res.data;</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dialogVisible = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.form = &#123;&#125;;</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">edit</span>(<span class="params">row</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.form = row;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dialogVisible = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">save</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> data = <span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.form);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (<span class="built_in">this</span>.form.id) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">// 编辑</span></span></span><br><span class="line"><span class="javascript">                    $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="attr">url</span>: <span class="string">&#x27;/user&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">type</span>: <span class="string">&#x27;put&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">contentType</span>: <span class="string">&#x27;application/json&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">data</span>: data</span></span><br><span class="line"><span class="javascript">                    &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">this</span>.dialogVisible = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">this</span>.loadTable(<span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">                    &#125;)</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">// 新增</span></span></span><br><span class="line"><span class="javascript">                    $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="attr">url</span>: <span class="string">&#x27;/user&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">type</span>: <span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">contentType</span>: <span class="string">&#x27;application/json&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                        <span class="attr">data</span>: data</span></span><br><span class="line"><span class="javascript">                    &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">this</span>.dialogVisible = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">this</span>.loadTable(<span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">                    &#125;)</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">del</span>(<span class="params">id</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="attr">url</span>: <span class="string">&#x27;/user/&#x27;</span> + id,</span></span><br><span class="line"><span class="javascript">                    <span class="attr">type</span>: <span class="string">&#x27;delete&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="attr">contentType</span>: <span class="string">&#x27;application/json&#x27;</span></span></span><br><span class="line"><span class="javascript">                &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.loadTable(<span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">                &#125;)</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>⑤打包Vue，cmd执行<code>npm run build</code>，会生成dist文件夹，里面生成的静态资源直接导入后端项目</p>
+<h5 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.get(<span class="string">&quot;/user/page?pageNum=&quot;</span> + <span class="built_in">this</span>.pageNum + <span class="string">&quot;&amp;pageSize=&quot;</span> + <span class="built_in">this</span>.pageSize + <span class="string">&quot;&amp;name=&quot;</span> + <span class="built_in">this</span>.name).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                   <span class="built_in">this</span>.page = res.data;</span><br><span class="line">               &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>异步请求时，要注意请求的地址以及请求的结果，通过console.log(this.page)这样的指令来查看请求到的数据在哪</p>
+<h4 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h4><h5 id="大概步骤-1"><a href="#大概步骤-1" class="headerlink" title="大概步骤"></a>大概步骤</h5><p>①引入需要的依赖，springboot-web、lombok、mysql这些可以在创建时选择，下面是需要手动导入的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--自动生成代码 依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--模板引擎 依赖:mybatis-plus代码生成的时候报异常--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.velocity<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>velocity-engine-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置ApiModel在实体类中不生效--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.spring4all<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-swagger<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mybatis-plus--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>②编写配置文件以及引入静态资源</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false&amp;serverTimezone=GMT%2b8</span></span><br></pre></td></tr></table></figure>
+
+<p>③通过mybatis-plus自动生成代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//我们需要构建一个代码生成器对象</span></span><br><span class="line">    AutoGenerator mpg = <span class="keyword">new</span> AutoGenerator();</span><br><span class="line">    <span class="comment">//怎么样去执行，配置策略</span></span><br><span class="line">    <span class="comment">//1、全局配置</span></span><br><span class="line">    GlobalConfig gc = <span class="keyword">new</span> GlobalConfig();</span><br><span class="line">    String projectPath = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);<span class="comment">//获取当前目录</span></span><br><span class="line">    gc.setOutputDir(projectPath+<span class="string">&quot;/src/main/java&quot;</span>);<span class="comment">//输出到哪个目录</span></span><br><span class="line">    gc.setAuthor(<span class="string">&quot;sx&quot;</span>);</span><br><span class="line">    gc.setOpen(<span class="keyword">false</span>);</span><br><span class="line">    gc.setFileOverride(<span class="keyword">false</span>);<span class="comment">//是否覆盖</span></span><br><span class="line">    gc.setServiceName(<span class="string">&quot;%sService&quot;</span>);<span class="comment">//去Service的I前缀</span></span><br><span class="line">    gc.setIdType(IdType.ASSIGN_ID);</span><br><span class="line">    gc.setDateType(DateType.ONLY_DATE);</span><br><span class="line">    gc.setSwagger2(<span class="keyword">true</span>);</span><br><span class="line">    mpg.setGlobalConfig(gc);</span><br><span class="line">    <span class="comment">//2、设置数据源</span></span><br><span class="line">    DataSourceConfig dsc = <span class="keyword">new</span> DataSourceConfig();</span><br><span class="line">    dsc.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">    dsc.setPassword(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">    dsc.setUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false&amp;serverTimezone=GMT%2b8&quot;</span>);</span><br><span class="line">    dsc.setDriverName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">    dsc.setDbType(DbType.MYSQL);</span><br><span class="line">    mpg.setDataSource(dsc);</span><br><span class="line">    <span class="comment">//3、包的配置</span></span><br><span class="line">    PackageConfig pc = <span class="keyword">new</span> PackageConfig();</span><br><span class="line">    pc.setModuleName(<span class="string">&quot;study&quot;</span>); <span class="comment">//生成的文件夹的名</span></span><br><span class="line">    pc.setParent(<span class="string">&quot;com.op&quot;</span>);	<span class="comment">//生成的文件夹的父文件夹</span></span><br><span class="line">    pc.setEntity(<span class="string">&quot;entity&quot;</span>);</span><br><span class="line">    pc.setMapper(<span class="string">&quot;mapper&quot;</span>);</span><br><span class="line">    pc.setService(<span class="string">&quot;service&quot;</span>);</span><br><span class="line">    pc.setController(<span class="string">&quot;controller&quot;</span>);</span><br><span class="line">    mpg.setPackageInfo(pc);</span><br><span class="line">    <span class="comment">//4、策略配置</span></span><br><span class="line">    StrategyConfig strategy = <span class="keyword">new</span> StrategyConfig();</span><br><span class="line">    strategy.setInclude(<span class="string">&quot;user&quot;</span>);<span class="comment">//设置要映射的表名,只需改这里即可</span></span><br><span class="line">    strategy.setNaming(NamingStrategy.underline_to_camel);</span><br><span class="line">    strategy.setColumnNaming(NamingStrategy.underline_to_camel);</span><br><span class="line">    strategy.setEntityLombokModel(<span class="keyword">true</span>);<span class="comment">//是否使用lombok开启注解</span></span><br><span class="line">    strategy.setLogicDeleteFieldName(<span class="string">&quot;deleted&quot;</span>);</span><br><span class="line">    <span class="comment">//自动填充配置</span></span><br><span class="line">    TableFill gmtCreate = <span class="keyword">new</span> TableFill(<span class="string">&quot;gmt_create&quot;</span>, FieldFill.INSERT);</span><br><span class="line">    TableFill gmtUpdate = <span class="keyword">new</span> TableFill(<span class="string">&quot;gmt_update&quot;</span>, FieldFill.INSERT_UPDATE);</span><br><span class="line">    ArrayList&lt;TableFill&gt; tableFills = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    tableFills.add(gmtCreate);</span><br><span class="line">    tableFills.add(gmtUpdate);</span><br><span class="line">    strategy.setTableFillList(tableFills);</span><br><span class="line">    <span class="comment">//乐观锁配置</span></span><br><span class="line">    strategy.setVersionFieldName(<span class="string">&quot;version&quot;</span>);</span><br><span class="line">    strategy.setRestControllerStyle(<span class="keyword">true</span>);<span class="comment">//开启驼峰命名</span></span><br><span class="line">    strategy.setControllerMappingHyphenStyle(<span class="keyword">true</span>);<span class="comment">//localhost:8080/hello_id_2</span></span><br><span class="line">    mpg.setStrategy(strategy);</span><br><span class="line">    mpg.execute();<span class="comment">//执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>④在springboot启动类上开启mapper注解，注意路径要对</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.op.study.mapper&quot;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MybatisPlus分页配置需要的代码，在启动类中添加</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MybatisPlusInterceptor <span class="title">mybatisPlusInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        MybatisPlusInterceptor interceptor = <span class="keyword">new</span> MybatisPlusInterceptor();</span><br><span class="line">        interceptor.addInnerInterceptor(<span class="keyword">new</span> PaginationInnerInterceptor(DbType.MYSQL));</span><br><span class="line">        <span class="keyword">return</span> interceptor;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>⑤开始实现服务类和控制类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 服务类  </span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        userMapper.deleteById(id);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 查询单个</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findById</span><span class="params">(Long id)</span></span>&#123;<span class="keyword">return</span> userMapper.selectById(id);&#125;</span><br><span class="line"><span class="comment">// 查询全部</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userMapper.selectList(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 分页查询</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Page&lt;User&gt; <span class="title">findPage</span><span class="params">(Integer pageNum, Integer pageSize, String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(pageNum,pageSize);</span><br><span class="line">        <span class="keyword">return</span> userMapper.selectPage(page,<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 控制类</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserServiceImpl userService;</span><br><span class="line"><span class="comment">// 添加</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">add</span><span class="params">(<span class="meta">@RequestBody</span> User user)</span></span>&#123;</span><br><span class="line">        userService.save(user);</span><br><span class="line">        <span class="keyword">return</span> Result.success();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 更新</span></span><br><span class="line">    <span class="meta">@PutMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">updata</span><span class="params">(<span class="meta">@RequestBody</span> User user)</span></span>&#123;</span><br><span class="line">        userService.updateById(user);</span><br><span class="line">        <span class="keyword">return</span> Result.success();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>&#123;</span><br><span class="line">        userService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 查询单个</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result&lt;User&gt; <span class="title">findById</span><span class="params">(<span class="meta">@PathVariable</span> Long id)</span></span>&#123; <span class="keyword">return</span> Result.success(userService.findById(id));&#125;</span><br><span class="line"><span class="comment">// 查询全部</span></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;List&lt;User&gt;&gt; findAll()&#123;</span><br><span class="line">        <span class="keyword">return</span> Result.success(userService.findAll());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 分类查询</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;Page&lt;User&gt;&gt; findPage(</span><br><span class="line">            <span class="meta">@RequestParam(defaultValue = &quot;1&quot;)</span> Integer pageNum, </span><br><span class="line">            <span class="meta">@RequestParam(defaultValue = &quot;10&quot;)</span> Integer pageSize,</span><br><span class="line">            <span class="meta">@RequestParam(required = false)</span> String name)&#123;</span><br><span class="line">        <span class="keyword">return</span> Result.success(userService.findPage(pageNum, pageSize,name));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/01/28/%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElementUI/" rel="tag">ElementUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/01/27/Vue%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Vue笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "J2fFiV8QrHlg4H3Hgszw8VAB-gzGzoHsz",
+    app_key: "KSfUuURMJ5thr5GnAun6Khma",
+    path: window.location.pathname,
+    avatar: "retro",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> Sx098
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="https://pic.imgdb.cn/item/61e156782ab3f51d91672ba1.png" alt="Meteor"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E5%88%86%E4%BA%AB/">分享</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://www.bilibili.com/">b站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://pic.imgdb.cn/item/61e156782ab3f51d91672b88.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://pic.imgdb.cn/item/61e156782ab3f51d91672bb5.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="86"
+        src="//music.163.com/outchain/player?type=2&id=1868837988&auto=0&height=66"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/aug.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"react":{"opacity":1},"log":false});</script></body>
+
+</html>
