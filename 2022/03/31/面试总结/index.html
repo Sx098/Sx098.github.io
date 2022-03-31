@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Hexo博客搭建 |  Meteor</title>
+      <title>面试总结 |  Meteor</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="https://pic.imgdb.cn/item/61e156832ab3f51d91675030.png" />
@@ -59,7 +59,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Hexo博客搭建"
+  id="post-面试总结"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -70,7 +70,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hexo博客搭建
+  面试总结
 </h1>
  
 
@@ -78,11 +78,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
-  <time datetime="2022-01-14T12:49:03.000Z" itemprop="datePublished">2022-01-14</time>
+      <a href="/2022/03/31/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2022-03-31T05:50:19.000Z" itemprop="datePublished">2022-03-31</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a> / <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/">前端</a>
   </div>
   
 <div class="word_count">
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">595</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -99,7 +99,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -114,66 +114,25 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>通过Nodejs安装hexo，Git来搭建环境。</p>
+  <p>收集面试题，总结面试经验和要点。</p>
 <span id="more"></span>
 
-
-    <div id="aplayer-EBPwHBuf" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="1842992032" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555" data-volume="0.1"
-    ></div>
-
-<h2 id="软件环境安装"><a href="#软件环境安装" class="headerlink" title="软件环境安装"></a>软件环境安装</h2><p>安装nodejs：<code>node -v npm -v</code><br>安装git:<code>git --version</code><br>安装hexo:<code>npm install hexo-cli -g</code><br>hexo指令:使用<code>npx hexo -v</code></p>
-<h2 id="GitHub仓库创建"><a href="#GitHub仓库创建" class="headerlink" title="GitHub仓库创建"></a>GitHub仓库创建</h2><p>新建仓库：{网站域名}.github.io<br>#linux shift+insert为粘贴快捷键<br>①生成ssh:<code>ssh-keygen -t rsa -C &quot;GitHub邮箱地址&quot;</code><br>②去C:\Users{用户名}.ssh下找到id_rsa.pub文件复制里面的内容<br>③去GitHub的setting找到SSH and GPG keys点击新建ssh keys复制ssh<br>④测试ssh是否绑定成功:<code>ssh -T git@github.com</code></p>
-<h2 id="Github上传项目步骤"><a href="#Github上传项目步骤" class="headerlink" title="Github上传项目步骤"></a>Github上传项目步骤</h2><p>新建仓库，之后新建文件夹即<code>git init</code>，将项目文件复制到生成的.git文件夹中<br> <code>git add .</code> 加载复制在.git文件夹的文件<br><code>git commit -m &quot;first commit&quot;</code> 提交的备注” “的字符串为备注<br><code>git branch -M main</code> 创建分支<br><code>git remote add origin 项目的地址</code> 设置要上传的项目地址<br><code>git push -u origin main</code> 上传项目</p>
-<h2 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h2><p>新建域名</p>
-<p><strong>输入指令</strong><br><code>hexo init (文件夹名)</code>   <strong>如果报错，指令加上前缀npx</strong></p>
-<p>①找到喜欢的主题点击Clone or download后将链接复制下来<br>②找到Hexo文件的位置，进入themes文件夹内，在themes文件夹下右键选择Git Bash Here<br>③输入命令,git clone +你复制的链接<br>④返回到上一层，找到_config.yml这个文件，用你的编辑器打开它，找到theme属性，改为生成的主题<br>⑤输入指令<br><code>1.hexo init (文件夹名)</code><br><code>2.hexo g(生成静态页面)</code><br><code>3.hexo s(开启本地服务器)</code><br><code>4.hexo d(上传)</code></p>
-<p>问题1:hexo部署到GitHub上但访问网站内容没更新<br>解决方法:hexo clean(清理缓存) hexo d -g(上传)</p>
-<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">推荐指数</th>
-<th align="left">优点</th>
-<th align="left">缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a></td>
-<td align="left">4</td>
-<td align="left">每天30000条评论，10GB的储存</td>
-<td align="left">作者评论无标识</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://livere.com/">来必力/livere</a></td>
-<td align="left">4</td>
-<td align="left">多种账号登录</td>
-<td align="left">评论无法导出</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言</a></td>
-<td align="left">3</td>
-<td align="left">美观</td>
-<td align="left">必须备案域名</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">gitment</a></td>
-<td align="left">3</td>
-<td align="left">简洁</td>
-<td align="left">只能登陆github评论</td>
-</tr>
-<tr>
-<td align="left">Disqus</td>
-<td align="left">1</td>
-<td align="left"></td>
-<td align="left">需要翻*墙</td>
-</tr>
-</tbody></table>
-<h3 id="获取APP-ID-和-APP-Key"><a href="#获取APP-ID-和-APP-Key" class="headerlink" title="获取APP ID 和 APP Key"></a>获取APP ID 和 APP Key</h3><p>进入<a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a>官网，请先<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signin">登录</a>或<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> <code>LeanCloud</code>, 进入<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/applist.html#/apps">控制台</a>后点击左下角<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/applist.html#/newapp">创建应用</a></p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c995c86fac81746.jpg"></p>
-<p>应用创建好以后，进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了：</p>
-<p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg"></p>
-<p>在config.yml文件中找到leancloud填写得到的app_id与app_key</p>
+<h3 id="面试心得"><a href="#面试心得" class="headerlink" title="面试心得"></a>面试心得</h3><p>①面试那个岗位就往着岗位的核心技术靠，主要提及自己关于此技术的学习和项目<br>②问到英语水平时，尽量表达出自己对编程的词汇还是可以的<br>③自我介绍，要突出自己的特点而且简短<br>④描述项目时要尽量说出自己的创新点<br>⑤描述业务实现，要简短尽量涉及到关键</p>
+<p><strong>脸皮要厚</strong></p>
+<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><h5 id="数组和链表的区别"><a href="#数组和链表的区别" class="headerlink" title="数组和链表的区别"></a>数组和链表的区别</h5><p>在内存中，数组是一块连续的区域；数组需要预留空间；数组的空间是从栈分配的<br>在内存中，元素的空间可以在任意地方，空间是分散的，不需要连续；链表中的元素都会两个属性，一个是元素的值，另一个是指针，此指针标记了下一个元素的地址；链表的空间是从堆中分配的</p>
+<p>数组：随机访问性强；查找速度快<br>缺点：插入和删除效率低；可能浪费内存；内存空间要求高，必须有足够的连续内存空间；数组大小固定，不能动态拓展</p>
+<p>链表：插入删除速度快；内存利用率高，不会浪费内存；大小没有固定，拓展很灵活。<br>缺点：不能随机查找，必须从第一个开始遍历，查找效率低</p>
+<p>对于想要快速访问数据，不经常有插入和删除元素的时候，选择数组<br>对于需要经常的插入和删除元素，而对访问元素时的效率没有很高要求的话，选择链表</p>
+<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><h5 id="jdbc使用步骤"><a href="#jdbc使用步骤" class="headerlink" title="jdbc使用步骤"></a>jdbc使用步骤</h5><p>加载jdbc驱动程序；提供jdbc连接的url即连接数据库；创建数据库连接；创建statement对象；执行sql数据；处理返回结果</p>
+<h5 id="List和Map区别"><a href="#List和Map区别" class="headerlink" title="List和Map区别"></a>List和Map区别</h5><p>表面来看，List是一个只是存放单个元素的集合，List集合所包含的元素可以重复，元素按放入的先后顺序来存放，程序可以通过元素的索引来读取元素，因此List相当于一个动态数组；Map则是一个存放key-value对的集合，Map里存放的key-value对是无需的，Map包含的key是不允许重复的。程序可以key来取出该key对应的value。<br>深入阐述：如果换个角度来看，我们可以把List当成Map来看，List相当于一个key都是值的Map，程序通过元素的索引读取List集合的元素时，完全也可以当成Map根据key来读取value。从另一个角度来看，Map也可以当成元素索引可以是任意类型的List集合。</p>
+<h5 id="一个”-java”源文件中是否可以包括多个类（不是内部类）？有什么限制？"><a href="#一个”-java”源文件中是否可以包括多个类（不是内部类）？有什么限制？" class="headerlink" title="一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？"></a>一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？</h5><p>这个是可以的，一个“.java”源文件里面可以包含多个类，但是只允许有一个public类，并且类名必须和文件名一致。</p>
+<h5 id="java启动一个线程是用run-还是start-？run-和start-的区别？"><a href="#java启动一个线程是用run-还是start-？run-和start-的区别？" class="headerlink" title="java启动一个线程是用run()还是start()？run()和start()的区别？"></a>java启动一个线程是用run()还是start()？run()和start()的区别？</h5><p>启动一个线程是调用start()方法，使线程所代表的虚拟处理机处于可运行状态，这意味着它可以由JVM 调度并执行，这并不意味着线程就会立即运行。run()方法是线程启动后要进行回调（callback）的方法。</p>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><h5 id="session和cookie的区别"><a href="#session和cookie的区别" class="headerlink" title="session和cookie的区别"></a>session和cookie的区别</h5><p>①Session保存在服务端，Cookie保存在客户端。<br>②因为Cookie存在客户端，用户可以看见进行编辑伪造，所以安全性低。<br>③Session对象是在服务器内存中的，而基于窗口的Cookie是在客户端内存中的。<br>④Cookie不是很安全，别人可以分析存放在本地的Cookie，进行Cookie欺骗；Session会在一定时间内保存在服务器上，当访问增多，会占用服务器性能。<br>⑤Cookie保存数据不能超过4k，很多浏览器都限制一个站点最多存放20个Cookie。</p>
+<h5 id="浏览输入url地址到显示主页过程"><a href="#浏览输入url地址到显示主页过程" class="headerlink" title="浏览输入url地址到显示主页过程"></a>浏览输入url地址到显示主页过程</h5><p>对输入到浏览器的url进行dns解析，将域名转换为ip地址<br>和目的服务器建立tcp连接<br>向目的服务器发送HTTP请求<br>服务器处理请求并返回HTTP报文<br>浏览器解析并渲染页面</p>
+<h5 id="tcp三次握手四次挥手"><a href="#tcp三次握手四次挥手" class="headerlink" title="tcp三次握手四次挥手"></a>tcp三次握手四次挥手</h5><p>第一次握手客户端发送syn包到服务器，等待服务器确认<br>第二次握手服务器收到syn包，发送syn+ack<br>第三次握手客户端收到syn+ack，向服务器发送ack<br>第一次挥手主动关闭方发送fin<br>第二次挥手被动关闭方收到fin，发送ack<br>第三次挥手被动关闭方发送fin<br>第四次挥手主动关闭方收到fin，发送ack给被动关闭方</p>
+<h4 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h4><h5 id="spring核心思想"><a href="#spring核心思想" class="headerlink" title="spring核心思想"></a>spring核心思想</h5><p>控制反转IOC，概念设计模式，本来由我们自己new出来的对象，现在交由IOC容器，把对象的控制权交给spring了，依赖注入DI就是ioc的实现方式<br>面向切面AOP，概念，通常用来为许多其他的类提供相同的服务，而且是固定的服务，是独立的。提升了代码的复用性，减少了代码的耦合度，减轻程序员的工作负担，把程序的重心放在了核心的逻辑上。</p>
+<h5 id="jwt是啥"><a href="#jwt是啥" class="headerlink" title="jwt是啥"></a>jwt是啥</h5><p>通过一些算法对json对象进行加密解密<br>jwt有Header头部token类型和加密算法；Payload负载存放有效信息；Signature签名用来验证发送请求者身份，由前两部分加密形成</p>
+<h5 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h5><p>Nginx是轻量级反向代理web服务器，能处理高并发连接数的响应<br>反向代理：就是服务端进行代理，而正向就是对客户端进行代理<br>负载均衡：多个服务器一起来提供服务，防止服务器超载发生事故<br>动静分离：将静态文件和动态文件分开部署，提高用户访问静态文件速度，降低对后台应用访问，提高服务器响应速度和性能</p>
  
       <!-- reward -->
       
@@ -244,12 +203,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/01/14/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/03/31/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag">知识</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
 
     </footer>
   </div>
@@ -257,19 +216,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/01/15/SpringBoot%E7%AC%94%E8%AE%B0/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            SpringBoot笔记
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/01/14/hello-world/" class="article-nav-link">
+      <a href="/2022/03/31/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">毕业设计</div>
       </a>
     
   </nav>
